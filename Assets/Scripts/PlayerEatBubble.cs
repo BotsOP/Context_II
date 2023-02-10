@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class PlayerEatBubble : MonoBehaviour
 {
-    public CinemachineFreeLook freelook;
+   // public CinemachineFreeLook freelook;
     [SerializeField]
     private float bubbleAlphaDepletion;
     [SerializeField]
@@ -26,7 +26,7 @@ public class PlayerEatBubble : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        freelook.m_Orbits[1].m_Radius = transform.localScale.x + 10f;
+        //freelook.m_Orbits[1].m_Radius = transform.localScale.x + 10f;
         int maxColliders = 1;
         Collider[] hitColliders = new Collider[maxColliders];
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, transform.localScale.x / 2 + eatRadius, hitColliders, bubbleLayerMask);
