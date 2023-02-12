@@ -30,6 +30,7 @@ public class PlayerEatBubble : MonoBehaviour
         int maxColliders = 1;
         Collider[] hitColliders = new Collider[maxColliders];
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, transform.localScale.x / 2 + eatRadius, hitColliders, bubbleLayerMask);
+        
         for (int i = 0; i < numColliders; i++)
         {
             int colliderID = hitColliders[i].GetInstanceID();
@@ -39,6 +40,7 @@ public class PlayerEatBubble : MonoBehaviour
                 bubbleMat = hitColliders[i].GetComponent<MeshRenderer>().material;
                 bubbleScript = hitColliders[i].GetComponent<Bubble>();
             }
+            
             // float alpha = bubbleMat.GetFloat("alpha");
             // bubbleMat.SetFloat("alpha", alpha - bubbleAlphaDepletion);
             // if (alpha <= 0)

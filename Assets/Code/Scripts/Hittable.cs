@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bubble : MonoBehaviour
+interface Hittable
 {
-    public float sizeIncrease;
+    void GetHit(Transform transform);
 }

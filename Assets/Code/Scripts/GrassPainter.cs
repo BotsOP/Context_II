@@ -69,7 +69,7 @@ public class GrassPainter : MonoBehaviour
                 shader.SetMatrix("localToWorld", meshFilter.transform.localToWorldMatrix);
                 shader.SetInt("amountIndices", amountIndices);
                 shader.SetInt("amountVertices", amountVertices);
-                shader.SetFloat("paintRadius", grassRadius);
+                shader.SetFloat("paintRadius", grassRadius + transform.localScale.x);
                 shader.Dispatch(kernelID, threadGroupSize, 1, 1);
 
                 vertex[] vertices = new vertex[amountVertices];

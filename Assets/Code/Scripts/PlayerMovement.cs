@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField, Range(0, 0.5f)]
 	private float upAxisSmoothing;
 
+	public bool updateVel;
+
 	Rigidbody body;
 	Vector3 velocity, desiredVelocity;
 	bool desiredJump;
@@ -84,6 +86,7 @@ public class PlayerMovement : MonoBehaviour {
 		velocity += gravity * Time.deltaTime;
 
 		body.velocity = velocity;
+		
 		ClearState();
 	}
 
