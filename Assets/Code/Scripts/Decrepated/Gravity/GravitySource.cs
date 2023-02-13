@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class GravitySource : MonoBehaviour {
+namespace Code.Scripts.Decrepated.Gravity
+{
+	public class GravitySource : MonoBehaviour {
 
-	void OnEnable () {
-		CustomGravity.Register(this);
-	}
+		void OnEnable () {
+			CustomGravity.Register(this);
+		}
 
-	void OnDisable () {
-		CustomGravity.Unregister(this);
-	}
+		void OnDisable () {
+			CustomGravity.Unregister(this);
+		}
 	
-	public virtual Vector3 GetGravity (Vector3 position) {
-		return Physics.gravity;
+		public virtual Vector3 GetGravity (Vector3 position) {
+			return Physics.gravity;
+		}
 	}
 }

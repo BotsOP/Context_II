@@ -15,6 +15,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
     [SerializeField] private Material DisplayMat;
 
     public GameObject particles;
+    public Transform sucker;
     public VisualEffect vfx;
     
     private Renderer rend;
@@ -25,6 +26,18 @@ public class PaintTarget : MonoBehaviour, IPaintable
     private CommandBuffer commandBuffer;
     private int kernelID;
     private Vector2 threadGroupSize;
+
+    #region shader properties
+    private readonly static int MaskTexture = Shader.PropertyToID("_MaskTexture");
+    private readonly static int Taintedness = Shader.PropertyToID("_Taintedness");
+    private readonly static int Tex = Shader.PropertyToID("_MainTex");
+    private readonly static int PaintPos = Shader.PropertyToID("_PaintPos");
+    private readonly static int Hardness = Shader.PropertyToID("_Hardness");
+    private readonly static int Strength = Shader.PropertyToID("_Strength");
+    private readonly static int Radius = Shader.PropertyToID("_Radius");
+    private readonly static int Color1 = Shader.PropertyToID("_Color");
+    #endregion
+    
 
     private void Awake()
     {
@@ -42,9 +55,9 @@ public class PaintTarget : MonoBehaviour, IPaintable
         rendTex2 = new CustomRenderTexture(textureSize, textureSize, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Linear);
         rendTex2.enableRandomWrite = true;
         
-        SetPaint.SetTexture("_MainTex", rendTex);
-        DisplayMat.SetTexture("_MainTex", rendTex2);
-        DisplayMat.SetFloat("_Taintedness", taintedness);
+        SetPaint.SetTexture(Tex, rendTex);
+        DisplayMat.SetTexture(MaskTexture, rendTex2);
+        DisplayMat.SetFloat(Taintedness, taintedness);
         
         threadGroupSize.x = Mathf.CeilToInt((float)rendTex.width / threadGroupSizeX);
         threadGroupSize.y = Mathf.CeilToInt((float)rendTex.height / threadGroupSizeY);
@@ -54,14 +67,16 @@ public class PaintTarget : MonoBehaviour, IPaintable
     {
         if (Input.GetKey(KeyCode.L))
         {
-            rendTex2.Release();
-            DisplayMat.SetTexture("_MainTex", rendTex2);
+            //rendTex2.Release();
+            DecayPaint();
+            DisplayMat.SetTexture(MaskTexture, rendTex2);
             
             taintedness -= taintDepletionRate;
             taintedness = Mathf.Clamp01(taintedness);
-            DisplayMat.SetFloat("_Taintedness", taintedness);
+            DisplayMat.SetFloat(Taintedness, taintedness);
             
-            vfx.SetInt("SpawnRate", (int)Mathf.Lerp(0, 500, taintedness));
+            vfx.SetInt("SpawnRate", (int)Mathf.Lerp(0, 2000, taintedness));
+            vfx.SetTexture("MaskTexture", rendTex2);
             
             particles.SetActive(true);
         }
@@ -71,14 +86,22 @@ public class PaintTarget : MonoBehaviour, IPaintable
         }
     }
 
+    public void DecayPaint()
+    {
+        kernelID = 1;
+        CopyPaint.SetFloat("decayRate", taintDepletionRate);
+        CopyPaint.SetTexture(kernelID, "mainPaintTex", rendTex2);
+        CopyPaint.Dispatch(kernelID, (int)threadGroupSize.x, (int)threadGroupSize.y, 1);
+    }
+
     public void Paint(Vector3 position, Color color, float hardness = 1, float strength = 1, float radius = 1)
     {
         kernelID = 0;
-        SetPaint.SetVector("_PaintPos", position);
-        SetPaint.SetFloat("_Hardness", hardness);
-        SetPaint.SetFloat("_Strength", strength);
-        SetPaint.SetFloat("_Radius", radius);
-        SetPaint.SetColor("_Color", color);
+        SetPaint.SetVector(PaintPos, position);
+        SetPaint.SetFloat(Hardness, hardness);
+        SetPaint.SetFloat(Strength, strength);
+        SetPaint.SetFloat(Radius, radius);
+        SetPaint.SetColor(Color1, color);
         CopyPaint.SetTexture(kernelID, "newPaintTex", rendTex);
         CopyPaint.SetTexture(kernelID, "mainPaintTex", rendTex2);
         
@@ -90,9 +113,14 @@ public class PaintTarget : MonoBehaviour, IPaintable
         Graphics.ExecuteCommandBuffer(commandBuffer);
         commandBuffer.Clear();
 
-        DisplayMat.SetTexture("_MainTex", rendTex2);
+        DisplayMat.SetTexture(MaskTexture, rendTex2);
         taintedness += taintGainRate;
         taintedness = Mathf.Clamp01(taintedness);
-        DisplayMat.SetFloat("_Taintedness", taintedness);
+        DisplayMat.SetFloat(Taintedness, taintedness);
+    }
+
+    private Vector3 MultiplyVector3(Vector3 a, Vector3 b)
+    {
+        return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
     }
 }

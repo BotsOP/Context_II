@@ -18,6 +18,9 @@ public class PaintSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             SpawnPaintBall();
+            SpawnPaintBall();
+            SpawnPaintBall();
+            SpawnPaintBall();
         }
         //SpawnPaintBall();
     }

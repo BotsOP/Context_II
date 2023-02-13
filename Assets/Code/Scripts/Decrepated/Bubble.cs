@@ -1,13 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Bubble : MonoBehaviour, Hittable
+namespace Code.Scripts.Decrepated
 {
-    public float sizeIncrease;
-    public void GetHit(Transform transform)
+    public class Bubble : MonoBehaviour, Hittable
     {
-        throw new NotImplementedException();
+        public float sizeIncrease;
+        public void GetHit(Transform transform)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-interface Hittable
+namespace Code.Scripts.Decrepated
 {
-    void GetHit(Transform transform);
+    interface Hittable
+    {
+        void GetHit(Transform transform);
+    }
 }
