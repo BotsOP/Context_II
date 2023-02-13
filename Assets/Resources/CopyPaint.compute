@@ -1,0 +1,15 @@
+#pragma kernel CSMain
+
+RWTexture2D<float4> newPaintTex;
+RWTexture2D<float4> mainPaintTex;
+
+[numthreads(16,16,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	float4 paint = newPaintTex[id.xy];
+	if(paint.a > 0)
+	{
+		float4 maintPaintColor = mainPaintTex[id.xy];
+		mainPaintTex[id.xy] = lerp(maintPaintColor, paint, paint.a);
+	}
+}
