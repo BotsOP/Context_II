@@ -983,7 +983,7 @@ VFXRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677889131}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taintedness: 0
-  taintDepletionRate: 0.001
+  taintDepletionRate: 0.005
   taintGainRate: 0.05
   textureSize: 1024
   DisplayMat: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454, type: 2}
