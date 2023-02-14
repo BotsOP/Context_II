@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private CharacterController controller;
 	[SerializeField] private float speed = 6f;
 	[SerializeField] private float turnSmoothTime = 0.1f;
-	[SerializeField] private float turnSmoothVelocity;
+	private float turnSmoothVelocity;
 
 	private void Update()
 	{
