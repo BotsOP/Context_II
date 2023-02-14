@@ -11,6 +11,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
     [SerializeField] private float taintedness;
     [SerializeField] private float taintDepletionRate = 0.1f;
     [SerializeField] private float taintGainRate = 0.1f;
+    [SerializeField] private int amountOilBlobs = 500;
     [SerializeField] private int textureSize = 1024;
     [SerializeField] private Material DisplayMat;
 
@@ -74,8 +75,10 @@ public class PaintTarget : MonoBehaviour, IPaintable
             taintedness -= taintDepletionRate;
             taintedness = Mathf.Clamp01(taintedness);
             DisplayMat.SetFloat(Taintedness, taintedness);
+            uint amountParticlesToSpawn = (uint)Mathf.Lerp(-amountOilBlobs / 3.0f, amountOilBlobs, taintedness);
+            Debug.Log((int)amountParticlesToSpawn);
             
-            vfx.SetInt("SpawnRate", (int)Mathf.Lerp(0, 2000, taintedness));
+            vfx.SetInt("SpawnRate", (int)amountParticlesToSpawn);
             vfx.SetTexture("MaskTexture", rendTex2);
             
             particles.SetActive(true);
