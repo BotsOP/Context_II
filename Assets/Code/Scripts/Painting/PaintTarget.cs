@@ -122,6 +122,11 @@ public class PaintTarget : MonoBehaviour, IPaintable
         DisplayMat.SetFloat(Taintedness, taintedness);
     }
 
+    public void SuckTarget(float suckingForce)
+    {
+        
+    }
+
     private Vector3 MultiplyVector3(Vector3 a, Vector3 b)
     {
         return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);

@@ -7,18 +7,61 @@ public class CureTaint : MonoBehaviour
 {
     [SerializeField] private Transform cam;
     [SerializeField] private Transform camFollow;
-    [SerializeField] private float radius = 5f, angle = 60f;
+    [SerializeField] private float radius = 5f, threshhold;
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private LayerMask obstructionMask;
-    private FieldOfView fov;
 
     private void Awake()
     {
-        fov = new FieldOfView(camFollow, cam, transform, targetMask, obstructionMask, radius, angle);
+        //fov = new FieldOfView(camFollow, cam, transform, targetMask, obstructionMask, radius, angle);
     }
 
     private void Update()
     {
-        Debug.Log($"{fov.FieldofViewCheck()} {fov?.target.name}");
+        Transform target = GetPossibleTarget();
+        if (target)
+        {
+            
+        }
+        
     }
+
+    private Transform GetPossibleTarget()
+    {
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+
+        Transform[] possibleColliders = new Transform[rangeChecks.Length];
+        int amountPossibleColliders = 0;
+        
+        foreach (var collider in rangeChecks)
+        {
+            Vector3 camToColliderDir = collider.transform.position - camFollow.position;
+            if (Vector3.Dot(cam.forward, camToColliderDir) > threshhold && !Physics.Raycast(camFollow.position, camToColliderDir, Mathf.Infinity, obstructionMask))
+            {
+                possibleColliders[amountPossibleColliders] = collider.transform;
+                amountPossibleColliders++;
+            }
+        }
+
+        if (amountPossibleColliders > 0)
+        {
+            float closestDistance = Mathf.Infinity;
+            Transform target = null;
+            foreach (var trans in possibleColliders)
+            {
+                float newDistance = Vector3.Distance(transform.position, trans.position);
+                if (newDistance < closestDistance)
+                {
+                    closestDistance = newDistance;
+                    target = trans;
+                }
+            }
+    
+            //Debug.Log($"{target.gameObject.name}");
+            return target;
+        }
+
+        return null;
+    }
+        
 }
