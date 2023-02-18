@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CureTaint : MonoBehaviour
 {
+    [SerializeField] private Transform sucker;
     [SerializeField] private Transform cam;
     [SerializeField] private Transform camFollow;
     [SerializeField] private float radius = 5f, threshhold;
@@ -16,12 +17,15 @@ public class CureTaint : MonoBehaviour
         //fov = new FieldOfView(camFollow, cam, transform, targetMask, obstructionMask, radius, angle);
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         Transform target = GetPossibleTarget();
         if (target)
         {
-            
+            if (Input.GetKey(KeyCode.L))
+            {
+                target.GetComponent<IPaintable>().SuckTarget(sucker, 1);
+            }
         }
         
     }

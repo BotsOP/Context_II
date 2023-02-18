@@ -831,11 +831,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 467240860}
-  - component: {fileID: 467240862}
+  - component: {fileID: 467240865}
   - component: {fileID: 467240864}
   - component: {fileID: 467240859}
   - component: {fileID: 467240858}
-  - component: {fileID: 467240863}
+  - component: {fileID: 467240867}
+  - component: {fileID: 467240866}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -909,7 +910,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &467240862
+--- !u!114 &467240864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -918,15 +919,78 @@ MonoBehaviour:
   m_GameObject: {fileID: 467240855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf3803a6f5400ac41a8cc340a7f777ce, type: 3}
+  m_Script: {fileID: 11500000, guid: bd2bbc96c166a7f499ef2fee6dd4cdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sucker: {fileID: 1057923239}
   cam: {fileID: 1491251095}
-  controller: {fileID: 467240863}
-  speed: 6
-  turnSmoothTime: 0.5
---- !u!143 &467240863
-CharacterController:
+  camFollow: {fileID: 296945842}
+  radius: 20
+  threshhold: 0.9
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &467240865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467240855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077b58ceb2172654baa8c36401608897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInputSpace: {fileID: 1491251095}
+  maxSpeed: 10
+  sprintSpeed: 15
+  maxAcceleration: 100
+  maxAirAcceleration: 100
+  jumpHeight: 2
+  maxAirJumps: 0
+  maxGroundAngle: 25
+  maxStairsAngle: 50
+  maxSnapSpeed: 100
+  probeDistance: 1
+  probeMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stairsMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!54 &467240866
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467240855}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!136 &467240867
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -943,36 +1007,11 @@ CharacterController:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
+  serializedVersion: 2
   m_Radius: 0.5000001
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &467240864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467240855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd2bbc96c166a7f499ef2fee6dd4cdbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 1491251095}
-  camFollow: {fileID: 296945842}
-  radius: 20
-  threshhold: 0.9
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 64
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 0
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &593429296
 GameObject:
   m_ObjectHideFlags: 3
@@ -1066,14 +1105,13 @@ GameObject:
   - component: {fileID: 677889136}
   - component: {fileID: 677889135}
   - component: {fileID: 677889137}
-  - component: {fileID: 677889138}
   m_Layer: 0
   m_Name: CureCorruption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &677889132
 Transform:
   m_ObjectHideFlags: 0
@@ -1097,7 +1135,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677889131}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1232,24 +1270,8 @@ MonoBehaviour:
   m_Bindings:
   - {fileID: 677889135}
   - {fileID: 677889137}
-  - {fileID: 677889138}
   m_VisualEffect: {fileID: 677889134}
 --- !u!114 &677889137
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677889131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c3070554d0a8944a95ff8f018c2c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Property:
-    m_Name: SuckerPosition
-  Target: {fileID: 1057923239}
---- !u!114 &677889138
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1781,8 +1803,8 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
+  m_UpdateMethod: 1
+  m_BlendUpdateMethod: 0
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
@@ -2152,11 +2174,10 @@ MonoBehaviour:
   taintDepletionRate: 0.005
   taintGainRate: 1
   amountOilBlobs: 500
+  deactivationDelay: 4
   textureSize: 1024
   DisplayMat: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454, type: 2}
   particles: {fileID: 677889131}
-  sucker: {fileID: 1057923239}
-  vfx: {fileID: 677889134}
 --- !u!64 &3469287837209108691
 MeshCollider:
   m_ObjectHideFlags: 0
