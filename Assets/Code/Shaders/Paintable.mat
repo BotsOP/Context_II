@@ -62,7 +62,7 @@ Material:
     - Vector1_b160a6374fb04a77b114bb611b8c55e4: 0
     - Vector1_b5cc7f6f25194a778cb438f45fbbce66: 20
     - Vector1_f6677799b193415b8be7686b658a6e85: 10
-    - _QueueControl: -1
+    - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - Color_1bf9c5e6f5c34360a490da1c94e6a7c1: {r: 1, g: 1, b: 1, a: 0}

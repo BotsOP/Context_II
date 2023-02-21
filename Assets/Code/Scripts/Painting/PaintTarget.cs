@@ -88,7 +88,6 @@ public class PaintTarget : MonoBehaviour, IPaintable
         {
             vfx.SetInt("SpawnRate", 0);
         }
-        isBeingSucked = false;
     }
 
     private void CheckToDeactivateParticles()
@@ -120,6 +119,10 @@ public class PaintTarget : MonoBehaviour, IPaintable
         vfx.SetTexture("MaskTexture", allPaintTex);
     }
 
+    public float GetTaintedness()
+    {
+        return taintedness;
+    }
     public void Paint(Vector3 position, Color color, float hardness = 1, float strength = 1, float radius = 1)
     {
         kernelID = 0;
@@ -151,6 +154,10 @@ public class PaintTarget : MonoBehaviour, IPaintable
         timeSinceLastActivation = Time.timeSinceLevelLoad;
         suckerTransformBinding.Target = suckTransform;
         DecayPaint(suckingForce);
+    }
+    public void StoppedSucking()
+    {
+        isBeingSucked = false;
     }
 
     private Vector3 MultiplyVector3(Vector3 a, Vector3 b)
