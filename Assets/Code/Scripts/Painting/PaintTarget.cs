@@ -15,7 +15,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
     [SerializeField] private int amountOilBlobs = 500;
     [SerializeField] private float deactivationDelay = 4f;
     [SerializeField] private int textureSize = 1024;
-    [SerializeField] private Material DisplayMat;
+    [SerializeField] private Material displayMatProperties;
     [SerializeField] private GameObject particles;
     
     private VisualEffect vfx;
@@ -31,6 +31,8 @@ public class PaintTarget : MonoBehaviour, IPaintable
     private VFXTransformBinder2 suckerTransformBinding;
     private float timeSinceLastActivation;
     private bool isBeingSucked;
+    private Shader paintableShader;
+    private Material displayMat;
 
     #region shader properties
     private readonly static int MaskTexture = Shader.PropertyToID("_MaskTexture");
@@ -41,8 +43,6 @@ public class PaintTarget : MonoBehaviour, IPaintable
     private readonly static int Strength = Shader.PropertyToID("_Strength");
     private readonly static int Radius = Shader.PropertyToID("_Radius");
     private readonly static int Color1 = Shader.PropertyToID("_Color");
-
-
     #endregion
     
 
@@ -55,6 +55,10 @@ public class PaintTarget : MonoBehaviour, IPaintable
         CopyPaint = Resources.Load<ComputeShader>("CopyPaint");
         SetPaint = new Material(Resources.Load<Shader>("SetPaint"));
         
+        displayMat = new Material(displayMatProperties.shader);
+        displayMatProperties.CopyPropertiesFromMaterial(displayMat);
+        rend.material = displayMat;
+        
         kernelID = 0;
         CopyPaint.GetKernelThreadGroupSizes(kernelID, out uint threadGroupSizeX, out uint threadGroupSizeY, out _);
         
@@ -65,14 +69,14 @@ public class PaintTarget : MonoBehaviour, IPaintable
         allPaintTex.enableRandomWrite = true;
         
         SetPaint.SetTexture(Tex, newPaintTex);
-        DisplayMat.SetTexture(MaskTexture, allPaintTex);
-        DisplayMat.SetFloat(Taintedness, taintedness);
+        displayMat.SetTexture(MaskTexture, allPaintTex);
+        displayMat.SetFloat(Taintedness, taintedness);
         
         threadGroupSize.x = Mathf.CeilToInt((float)newPaintTex.width / threadGroupSizeX);
         threadGroupSize.y = Mathf.CeilToInt((float)newPaintTex.height / threadGroupSizeY);
 
         suckerTransformBinding = particles.AddComponent<VFXTransformBinder2>();
-        suckerTransformBinding.Property = "SuckerPosition";
+        suckerTransformBinding.Property = "SuckerTransform";
         vfxBinder.m_Bindings.Add(suckerTransformBinding);
     }
 
@@ -104,11 +108,11 @@ public class PaintTarget : MonoBehaviour, IPaintable
         CopyPaint.SetTexture(kernelID, "mainPaintTex", allPaintTex);
         CopyPaint.Dispatch(kernelID, (int)threadGroupSize.x, (int)threadGroupSize.y, 1);
         
-        DisplayMat.SetTexture(MaskTexture, allPaintTex);
+        displayMat.SetTexture(MaskTexture, allPaintTex);
             
         taintedness -= taintDepletionRate;
         taintedness = Mathf.Clamp01(taintedness);
-        DisplayMat.SetFloat(Taintedness, taintedness);
+        displayMat.SetFloat(Taintedness, taintedness);
         int amountParticlesToSpawn = (int)Mathf.Lerp(-amountOilBlobs / 3.0f, amountOilBlobs, taintedness);
         //Debug.Log(amountParticlesToSpawn);
             
@@ -135,10 +139,10 @@ public class PaintTarget : MonoBehaviour, IPaintable
         Graphics.ExecuteCommandBuffer(commandBuffer);
         commandBuffer.Clear();
 
-        DisplayMat.SetTexture(MaskTexture, allPaintTex);
+        displayMat.SetTexture(MaskTexture, allPaintTex);
         taintedness += taintGainRate;
         taintedness = Mathf.Clamp01(taintedness);
-        DisplayMat.SetFloat(Taintedness, taintedness);
+        displayMat.SetFloat(Taintedness, taintedness);
     }
 
     public void SuckTarget(Transform suckTransform, float suckingForce = 1f)
