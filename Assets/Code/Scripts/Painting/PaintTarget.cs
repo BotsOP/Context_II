@@ -108,8 +108,8 @@ public class PaintTarget : MonoBehaviour, IPaintable
         CopyPaint.Dispatch(kernelID, (int)threadGroupSize.x, (int)threadGroupSize.y, 1);
         
         displayMat.SetTexture(MaskTexture, allPaintTex);
-            
-        taintedness -= taintDepletionRate;
+        
+        taintedness -= taintDepletionRate * suckingForce;
         taintedness = Mathf.Clamp01(taintedness);
         displayMat.SetFloat(Taintedness, taintedness);
         int amountParticlesToSpawn = (int)Mathf.Lerp(-amountOilBlobs / 3.0f, amountOilBlobs, taintedness);

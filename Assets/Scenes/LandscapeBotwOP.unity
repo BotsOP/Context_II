@@ -30452,7 +30452,8 @@ MonoBehaviour:
   sucker: {fileID: 2237449617937370594}
   cam: {fileID: 3642573307530932433}
   camFollow: {fileID: 58962801667174194}
-  radius: 20
+  SuckMultiplier: 1
+  suckRadius: 7
   threshhold: 0.9
   targetMask:
     serializedVersion: 2
@@ -30460,6 +30461,8 @@ MonoBehaviour:
   obstructionMask:
     serializedVersion: 2
     m_Bits: 0
+  SprintMultiplier: 0.1
+  sprintRadius: 5
 --- !u!136 &2237449617319570150
 CapsuleCollider:
   m_ObjectHideFlags: 0

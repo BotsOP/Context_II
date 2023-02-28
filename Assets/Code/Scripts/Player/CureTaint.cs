@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +13,13 @@ public class CureTaint : MonoBehaviour
     [SerializeField] private Transform sucker;
     [SerializeField] private Transform cam;
     [SerializeField] private Transform camFollow;
-    [SerializeField] private float radius = 5f, threshhold;
+    [SerializeField] private float SuckMultiplier = 1f, suckRadius = 5f, threshhold;
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private LayerMask obstructionMask;
+    [SerializeField] private float SprintMultiplier = 0.1f, sprintRadius;
     private Transform target;
+    private Transform[] targets;
+    private Transform[] previousTargets;
     private Transform previousTarget;
 
     private void OnEnable()
@@ -35,31 +39,73 @@ public class CureTaint : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (target)
+        if (Input.GetKey(KeyCode.F) && fuel >= 0)
         {
-            if (Input.GetKey(KeyCode.F) && fuel >= 0)
+            Debug.Log($"target hit");
+            fuel -= fuelDepletionRate;
+            slider.value = fuel;
+            if(target) { target.GetComponent<IPaintable>().SuckTarget(sucker, SuckMultiplier); }
+        }
+        else if (Input.GetKey(KeyCode.LeftShift) && targets.Length > 0)
+        {
+            foreach (var target1 in targets)
             {
-                fuel -= fuelDepletionRate;
-                slider.value = fuel;
-                target.GetComponent<IPaintable>().SuckTarget(sucker, 1);
-            }
-            else
-            {
-                target.GetComponent<IPaintable>().StoppedSucking();
+                target1.GetComponent<IPaintable>().SuckTarget(sucker, SprintMultiplier);
             }
         }
+        // else if(!Input.GetKey(KeyCode.F))
+        // {
+        //     if(target) { target.GetComponent<IPaintable>().StoppedSucking(); }
+        // }
+        // else if(!Input.GetKey(KeyCode.LeftShift) && targets.Length > 0)
+        // {
+        //     foreach (var target1 in targets)
+        //     {
+        //         if(target1 == target) { continue; }
+        //         target1.GetComponent<IPaintable>().StoppedSucking();
+        //     }
+        // }
+        
         previousTarget = target;
         target = GetPossibleTarget();
+        previousTargets = targets;
+        targets = GetAllTargets();
 
         if (target != previousTarget && previousTarget)
         {
+            Debug.Log($"single target");
             previousTarget.GetComponent<IPaintable>().StoppedSucking();
         }
+        else if (previousTargets.Length > 0 && !Input.GetKey(KeyCode.F))
+        {
+            foreach (var previousTarget1 in previousTargets)
+            {
+                bool shouldStopSucking = false;
+                foreach (var target1 in targets)
+                {
+                    if (target1 != previousTarget1)
+                    {
+                        shouldStopSucking = true;
+                    }
+                }
+
+                if (shouldStopSucking)
+                {
+                    Debug.Log($"multy target");
+                    previousTarget1.GetComponent<IPaintable>().StoppedSucking();
+                }
+            }
+        }
+    }
+
+    private Transform[] GetAllTargets()
+    {
+        return Physics.OverlapSphere(transform.position, sprintRadius, targetMask).Select(collider => collider.transform).ToArray();
     }
 
     private Transform GetPossibleTarget()
     {
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, suckRadius, targetMask);
 
         List<Transform> possibleColliders = new List<Transform>();
         
