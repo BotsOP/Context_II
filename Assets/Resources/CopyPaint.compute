@@ -1,0 +1,25 @@
+#pragma kernel CopyPaint
+#pragma kernel DecayPaint
+
+RWTexture2D<float4> newPaintTex;
+RWTexture2D<float4> mainPaintTex;
+
+float decayRate;
+
+[numthreads(32,32,1)]
+void CopyPaint (uint3 id : SV_DispatchThreadID)
+{
+	float4 paint = newPaintTex[id.xy];
+	float4 maintPaintColor = mainPaintTex[id.xy];
+	if(paint.a > maintPaintColor.a)
+	{
+		mainPaintTex[id.xy] = float4(lerp(maintPaintColor, paint, paint.a).xyzw);
+	}
+}
+
+[numthreads(32,32,1)]
+void DecayPaint (uint3 id : SV_DispatchThreadID)
+{
+	float4 maintPaintColor = mainPaintTex[id.xy];
+	mainPaintTex[id.xy] = saturate(float4(maintPaintColor - float4(0, 0, 0, decayRate)));
+}
