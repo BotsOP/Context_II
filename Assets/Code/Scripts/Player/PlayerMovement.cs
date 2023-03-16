@@ -17,12 +17,12 @@ public class PlayerMovement : MonoBehaviour {
 	private bool desiredJump;
 	private Vector3 contactNormal, steepNormal;
 	private int groundContactCount, steepContactCount;
-	private bool OnGround => groundContactCount > 0;
-	private bool OnSteep => steepContactCount > 0;
 	private int jumpPhase;
 	private float minGroundDotProduct, minStairsDotProduct;
 	private int stepsSinceLastGrounded, stepsSinceLastJump;
 	private float speed;
+	private bool OnGround => groundContactCount > 0;
+	private bool OnSteep => steepContactCount > 0;
 
 	void OnValidate () {
 		minGroundDotProduct = Mathf.Cos(maxGroundAngle * Mathf.Deg2Rad);
