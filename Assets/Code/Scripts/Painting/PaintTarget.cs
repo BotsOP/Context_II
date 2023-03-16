@@ -107,7 +107,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
         CopyPaint.SetTexture(kernelID, "mainPaintTex", allPaintTex);
         CopyPaint.Dispatch(kernelID, (int)threadGroupSize.x, (int)threadGroupSize.y, 1);
         
-        displayMat.SetTexture(MaskTexture, allPaintTex);
+        //displayMat.SetTexture(MaskTexture, allPaintTex);
         
         taintedness -= taintDepletionRate * suckingForce;
         taintedness = Mathf.Clamp01(taintedness);
