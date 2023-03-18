@@ -15,7 +15,7 @@ public class PaintSpawner : MonoBehaviour
         Gizmos.DrawWireCube(Vector3.zero, new Vector3(transform.localScale.x, 0, transform.localScale.z));
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {

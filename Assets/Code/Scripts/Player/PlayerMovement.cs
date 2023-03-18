@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -11,18 +12,19 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField, Range(0f, 100f)] private float maxSnapSpeed = 100f;
 	[SerializeField, Min(0f)] private float probeDistance = 1f;
 	[SerializeField] private LayerMask probeMask = -1, stairsMask = -1;
+	[SerializeField] private Animator animator;
 	
 	private Rigidbody body;
 	private Vector3 velocity, desiredVelocity;
 	private bool desiredJump;
 	private Vector3 contactNormal, steepNormal;
 	private int groundContactCount, steepContactCount;
-	private bool OnGround => groundContactCount > 0;
-	private bool OnSteep => steepContactCount > 0;
 	private int jumpPhase;
 	private float minGroundDotProduct, minStairsDotProduct;
 	private int stepsSinceLastGrounded, stepsSinceLastJump;
 	private float speed;
+	private bool OnGround => groundContactCount > 0;
+	private bool OnSteep => steepContactCount > 0;
 
 	void OnValidate () {
 		minGroundDotProduct = Mathf.Cos(maxGroundAngle * Mathf.Deg2Rad);
@@ -66,6 +68,13 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		desiredJump |= Input.GetButtonDown("Jump");
+
+		if (velocity.magnitude > 0.1)
+		{
+			transform.rotation = quaternion.LookRotation(new Vector3(velocity.x, 0, velocity.z), transform.up);
+		}
+		animator.SetBool("isRunning", velocity.magnitude > 0.1);
+		//animator.SetBool("isJumping", !OnGround);
 	}
 
 	void FixedUpdate () {
