@@ -1,0 +1,31 @@
+#pragma kernel FindClosestVertex
+
+struct vertex
+{
+    float3 position;
+    float3 normal;
+    float4 tangent;
+};
+RWStructuredBuffer<vertex> gpuVertices;
+RWStructuredBuffer<float2> gpuUV;
+StructuredBuffer<int> gpuIndices;
+int amountIndices;
+int amountVertices;
+float3 targetPos;
+float paintRadius;
+float4x4 localToWorld;
+
+[numthreads(512,1,1)]
+void FindClosestVertex (uint3 id : SV_DispatchThreadID)
+{
+    if((int)id.x > amountVertices)
+    {
+        return;
+    }
+    float3 position = gpuVertices[id.x].position;
+    position = mul(localToWorld, float4(position, 1));
+    if(distance(targetPos, position) < paintRadius)
+    {
+        gpuUV[id.x].x = 1.0f;
+    }
+}
