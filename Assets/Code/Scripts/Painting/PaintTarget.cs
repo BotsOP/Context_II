@@ -125,6 +125,8 @@ public class PaintTarget : MonoBehaviour, IPaintable
     }
     public void Paint(Vector3 position, Color color, float hardness = 1, float strength = 1, float radius = 1)
     {
+        Debug.Log("Added paint");
+
         kernelID = 0;
         SetPaint.SetVector(PaintPos, position);
         SetPaint.SetFloat(Hardness, hardness);
