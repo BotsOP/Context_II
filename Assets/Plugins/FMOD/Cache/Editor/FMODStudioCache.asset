@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: ../FmodUNEPGame/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638137930889594467
+  lastModified: 638150801622237975
   FileSizes:
   - Name: Desktop
-    Value: 916
+    Value: 1066
   Exists: 1
 --- !u!114 &-8504995296417987722
 MonoBehaviour:
@@ -114,12 +114,13 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: -5621248252949805283}
   - {fileID: 7344686609135415207}
+  - {fileID: 4722936289073547832}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2901103554057454280}
   StringsBanks:
   - {fileID: -9094060165201465868}
-  cacheTime: 638137930889594467
+  cacheTime: 638150801622237975
   cacheVersion: 131601
 --- !u!114 &2901103554057454280
 MonoBehaviour:
@@ -136,10 +137,62 @@ MonoBehaviour:
   Path: ../FmodUNEPGame/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638137930889564320
+  lastModified: 638150801622187332
   FileSizes:
   - Name: Desktop
-    Value: 1166848
+    Value: 1290560
+  Exists: 1
+--- !u!114 &4722936289073547832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Vacuum
+  m_EditorClassIdentifier: 
+  Path: event:/Vacuum
+  Guid:
+    Data1: 92226130
+    Data2: 1314003183
+    Data3: 1089162174
+    Data4: -716242899
+  Banks:
+  - {fileID: 2901103554057454280}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6540128532517444481}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6048
+--- !u!114 &6540128532517444481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Vacuum/Slurp
+  m_EditorClassIdentifier: 
+  Name: Slurp
+  StudioPath: 
+  Min: 0
+  Max: 7
+  Default: 0
+  ID:
+    data1: 196763256
+    data2: 2396799313
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &7344686609135415207
 MonoBehaviour:

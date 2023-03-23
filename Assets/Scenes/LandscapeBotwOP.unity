@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -30820,7 +30820,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58962801686938553}
-  m_LocalRotation: {x: -0.15614448, y: -0.18027996, z: 0.072410405, w: 0.9684394}
+  m_LocalRotation: {x: -0.15614448, y: -0.18027987, z: 0.072410405, w: 0.96843934}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31598,6 +31598,13 @@ MonoBehaviour:
     m_Bits: 0
   SprintMultiplier: 0.1
   sprintRadius: 5
+  fmodEvent:
+    Guid:
+      Data1: 92226130
+      Data2: 1314003183
+      Data3: 1089162174
+      Data4: -716242899
+    Path: event:/Vacuum
 --- !u!114 &919132148358309933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31972,6 +31979,13 @@ MonoBehaviour:
     m_Bits: 0
   SprintMultiplier: 0.1
   sprintRadius: 5
+  fmodEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!136 &2237449617319570150
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32451,7 +32465,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3642573307530932434}
-  m_LocalRotation: {x: 0.09092404, y: 0.56809866, z: -0.06334272, w: 0.81546575}
+  m_LocalRotation: {x: 0.09092403, y: 0.5680987, z: -0.06334274, w: 0.8154657}
   m_LocalPosition: {x: 557.416, y: 5.879287, z: 469.08643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

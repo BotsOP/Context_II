@@ -39,9 +39,19 @@ public class ShopScript : MonoBehaviour
     public Button ConfirmButton;
     public Button ExitButton;
 
+    //fmod Code 
+    public FMOD.Studio.EventInstance instance;
+    public FMODUnity.EventReference fmodEvent;
+    public FMOD.Studio.EventInstance instance2;
+    public FMODUnity.EventReference fmodEvent2;
+    public int workshopCounter = 0;
+    public int bigCompanyCounter = 0;
 
     private void Start()
     {
+        instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        instance2 = FMODUnity.RuntimeManager.CreateInstance(fmodEvent2);
+
         inRange = false;
         totalPrice= 0;
         finalPrice = basePrice;
@@ -53,6 +63,7 @@ public class ShopScript : MonoBehaviour
         {
             shopManager.GoodShopDict.Add(ShopName, this);
         }
+
     }
 
     private void Update()
@@ -158,11 +169,19 @@ public class ShopScript : MonoBehaviour
             {
                 Player.GetComponent<PlayerInventory>().BadFuelPacks += temporaryBadFuelAmount;
                 Player.GetComponent<PlayerInventory>().moneyInInventory -= totalPrice;
+
+                bigCompanyCounter++;
+                instance.setParameterByName("BCFeedback", bigCompanyCounter);
+                instance.start();
             }
             else
             {
                 Player.GetComponent<PlayerInventory>().GoodFuelPacks += temporaryGoodFuelAmount;
                 Player.GetComponent<PlayerInventory>().moneyInInventory -= totalPrice;
+
+                workshopCounter++;
+                instance2.setParameterByName("WSFeedback", workshopCounter);
+                instance2.start();
             }
             CloseShopWindow();
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2280,6 +2280,22 @@ MonoBehaviour:
   RemoveButton: {fileID: 1469389741}
   ConfirmButton: {fileID: 2040375381}
   ExitButton: {fileID: 174582030}
+  fmodEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  fmodEvent2:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  workshopCounter: 0
+  bigCompanyCounter: 0
 --- !u!4 &146912332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65115244e538ae8409c794bc5ae066ec,
@@ -12007,6 +12023,7 @@ GameObject:
   - component: {fileID: 725620004}
   - component: {fileID: 725620003}
   - component: {fileID: 725620002}
+  - component: {fileID: 725620005}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -12101,6 +12118,58 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725620000}
   m_Mesh: {fileID: -1550514412580984892, guid: 31c30cfe96922c846bd4b7e731af8406, type: 3}
+--- !u!114 &725620005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725620000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d032eaed8462ca24693946ff1d278696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  ShopName: 
+  ItemName: 
+  stockAmount: 0
+  basePrice: 0
+  finalPrice: 0
+  isBadShop: 0
+  shopManager: {fileID: 0}
+  temporaryGoodFuelAmount: 0
+  temporaryBadFuelAmount: 0
+  temporaryPrice: 0
+  totalPrice: 0
+  ShopScreen: {fileID: 0}
+  shopName: {fileID: 0}
+  itemName: {fileID: 0}
+  stock: {fileID: 0}
+  Productprice: {fileID: 0}
+  Totalprice: {fileID: 0}
+  itemsInbasket: {fileID: 0}
+  itemsTypeInbasket: {fileID: 0}
+  AddButton: {fileID: 0}
+  RemoveButton: {fileID: 0}
+  ConfirmButton: {fileID: 0}
+  ExitButton: {fileID: 0}
+  fmodEvent:
+    Guid:
+      Data1: 428809604
+      Data2: 1095104371
+      Data3: 671526809
+      Data4: 468963912
+    Path: event:/BigCompany
+  fmodEvent2:
+    Guid:
+      Data1: -696617378
+      Data2: 1219086487
+      Data3: -1198113110
+      Data4: -1383600367
+    Path: event:/WorkShop
+  workshopCounter: 0
+  bigCompanyCounter: 0
 --- !u!1 &730458867
 GameObject:
   m_ObjectHideFlags: 0
@@ -18285,6 +18354,22 @@ MonoBehaviour:
   RemoveButton: {fileID: 1469389741}
   ConfirmButton: {fileID: 2040375381}
   ExitButton: {fileID: 174582030}
+  fmodEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  fmodEvent2:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  workshopCounter: 0
+  bigCompanyCounter: 0
 --- !u!4 &1132886324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65115244e538ae8409c794bc5ae066ec,
@@ -21990,6 +22075,22 @@ MonoBehaviour:
   RemoveButton: {fileID: 1469389741}
   ConfirmButton: {fileID: 2040375381}
   ExitButton: {fileID: 174582030}
+  fmodEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  fmodEvent2:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  workshopCounter: 0
+  bigCompanyCounter: 0
 --- !u!4 &1369502548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65115244e538ae8409c794bc5ae066ec,
@@ -34670,7 +34771,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58962802369060153}
-  m_LocalRotation: {x: -0.10227727, y: -0.3304086, z: 0.15224093, w: 0.9258468}
+  m_LocalRotation: {x: -0.10227728, y: -0.33040866, z: 0.15224095, w: 0.9258467}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -35049,6 +35150,7 @@ MonoBehaviour:
   stairsMask:
     serializedVersion: 2
     m_Bits: 0
+  animator: {fileID: 0}
 --- !u!114 &2237449617319570149
 MonoBehaviour:
   m_ObjectHideFlags: 0

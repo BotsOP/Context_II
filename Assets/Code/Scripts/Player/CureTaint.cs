@@ -22,6 +22,9 @@ public class CureTaint : MonoBehaviour
     private Transform[] previousTargets;
     private Transform previousTarget;
 
+    public FMOD.Studio.EventInstance instance;
+    public FMODUnity.EventReference fmodEvent;
+
     private void OnEnable()
     {
         EventSystem<float>.Subscribe(EventType.FUEL_ADDED, IncreaseFuel);
@@ -36,11 +39,17 @@ public class CureTaint : MonoBehaviour
         fuel += amountFuel;
         slider.value = fuel;
     }
+    private void Start()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        instance.start();
+    }
 
     private void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.F) && fuel >= 0)
         {
+            instance.setParameterByName("Slurp", 1);
             Debug.Log($"target hit");
             fuel -= fuelDepletionRate;
             slider.value = fuel;
