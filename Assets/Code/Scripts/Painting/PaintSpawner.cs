@@ -35,7 +35,10 @@ public class PaintSpawner : MonoBehaviour
                 SpawnPaintBall();
             }
         }
+    }
 
+    private void FixedUpdate()
+    {
         for (int i = 0; i < paintBlobs.Count; i++)
         {
             bool hitSomething = paintBlobs[i].Update(Color.red, blobRadius, 0, 1, gravity, layerMask);
@@ -73,12 +76,12 @@ public class PaintSpawner : MonoBehaviour
         {
             paintObject.transform.Translate(new Vector3(0, gravity, 0));
 
-            Collider[] hitColliders = new Collider[1];
+            Collider[] hitColliders = new Collider[5];
             int numColliders = Physics.OverlapSphereNonAlloc(paintObject.transform.position, 0.1f, hitColliders, _layerMask);
 
             for (int i = 0; i < numColliders; i++)
             {
-                hitColliders[0].gameObject.GetComponent<IPaintable>().Paint(paintObject.transform.position, _color, _hardness, _strength, _radius);
+                hitColliders[i].gameObject.GetComponent<IPaintable>().Paint(paintObject.transform.position, _color, _hardness, _strength, _radius);
                 Destroy(paintObject);
                 return true;
             }

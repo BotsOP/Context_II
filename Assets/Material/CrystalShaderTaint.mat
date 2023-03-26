@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_TreeShaderTaint
-  m_Shader: {fileID: -6465566751694194690, guid: a50afb6642e0b2648ba429e8d02dfd56,
+  m_Name: CrystalShaderTaint
+  m_Shader: {fileID: -6465566751694194690, guid: a61cc6e2c2ae9d34c96529f2865af094,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -28,32 +28,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Normal_Map:
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: 5cd817b43f93a6a4b92964f3b7bda816, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMapping_112f842eb185499181288dc8aca705fe_Heightmap_1:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_55908ab5a16f4a649228302b6b6ba528_Texture_1:
-        m_Texture: {fileID: 2800000, guid: b4a79620bdc09864bbc16caba4a86c7f, type: 3}
+    - _ParallaxMapping_ab5638924dea483da7e0e39dad1e1b21_Heightmap_1:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_59d107f9d78d43a08360720fea3f96bd_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 1cc98538bfe6c254183dbe4d81f28df3, type: 3}
+    - _SampleTexture2D_051a449f25834db08bfbdbdba0705fce_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 2cb1407950303e648bbcfd86cc9c911a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_7723e4b507c54248b1d0c0dd16d7b03d_Texture_1:
-        m_Texture: {fileID: 2800000, guid: e901f0fa132545f44bb21d3a190a634e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_84959272ac114d64867a723d56c3a626_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 1acd9e1cf9e6bcf4db3e566630a5f463, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_b04fe75bc7e94a18921cb82a0a7f5724_Texture_1:
-        m_Texture: {fileID: 2800000, guid: c9b2aed2fa01ef84eb9c76478973dd70, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_dc4a4a46f29249ffbd363b4d4f3901aa_Texture_1:
-        m_Texture: {fileID: 2800000, guid: f3a9bbef1648dc3478213da02f01aec9, type: 3}
+    - _SwirlTexture:
+        m_Texture: {fileID: 2800000, guid: 2cb1407950303e648bbcfd86cc9c911a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -70,14 +62,30 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Green_Blue_Purple: 0
-    - _PaintMetallic: 0
-    - _QueueControl: 0
+    - _AlphaClip: 1
+    - _AlphaToMask: 1
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 1
+    - _BumpNoiseScale: 20
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DstBlend: 0
+    - _QueueControl: -1
     - _QueueOffset: 0
-    - _Taintedness: 0
+    - _ReceiveShadows: 1
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _Tiling: 1.5
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
+    - _paintMetallic: 0
+    - _paintSmoothness: 0
+    - _swirlFadeStrength: 1.02
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &7211713479548804880
+--- !u!114 &6146013234516977199
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
