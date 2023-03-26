@@ -22,8 +22,8 @@ public class PaintTarget : MonoBehaviour, IPaintable
     private Renderer rend;
     private Material SetPaint;
     private ComputeShader CopyPaint;
-    private RenderTexture newPaintTex;
-    private RenderTexture allPaintTex;
+    public RenderTexture newPaintTex;
+    public RenderTexture allPaintTex;
     private CommandBuffer commandBuffer;
     private int kernelID;
     private Vector2 threadGroupSize;
@@ -31,8 +31,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
     private VFXTransformBinder2 suckerTransformBinding;
     private float timeSinceLastActivation;
     private bool isBeingSucked;
-    private Shader paintableShader;
-    private Material displayMat;
+    public Material displayMat;
 
     #region shader properties
     private readonly static int MaskTexture = Shader.PropertyToID("_MaskTexture");
@@ -78,6 +77,9 @@ public class PaintTarget : MonoBehaviour, IPaintable
         suckerTransformBinding = particles.AddComponent<VFXTransformBinder2>();
         suckerTransformBinding.Property = "SuckerTransform";
         vfxBinder.m_Bindings.Add(suckerTransformBinding);
+        
+        displayMat.SetTexture(MaskTexture, allPaintTex);
+        vfx.SetTexture("MaskTexture", allPaintTex);
     }
 
     private void Update()
@@ -107,16 +109,13 @@ public class PaintTarget : MonoBehaviour, IPaintable
         CopyPaint.SetTexture(kernelID, "mainPaintTex", allPaintTex);
         CopyPaint.Dispatch(kernelID, (int)threadGroupSize.x, (int)threadGroupSize.y, 1);
         
-        //displayMat.SetTexture(MaskTexture, allPaintTex);
-        
         taintedness -= taintDepletionRate * suckingForce;
         taintedness = Mathf.Clamp01(taintedness);
         displayMat.SetFloat(Taintedness, taintedness);
         int amountParticlesToSpawn = (int)Mathf.Lerp(-amountOilBlobs / 3.0f, amountOilBlobs, taintedness);
-        //Debug.Log(amountParticlesToSpawn);
             
         vfx.SetInt("SpawnRate", amountParticlesToSpawn);
-        vfx.SetTexture("MaskTexture", allPaintTex);
+        
     }
 
     public float GetTaintedness()
@@ -125,8 +124,6 @@ public class PaintTarget : MonoBehaviour, IPaintable
     }
     public void Paint(Vector3 position, Color color, float hardness = 1, float strength = 1, float radius = 1)
     {
-        Debug.Log("Added paint");
-
         kernelID = 0;
         SetPaint.SetVector(PaintPos, position);
         SetPaint.SetFloat(Hardness, hardness);

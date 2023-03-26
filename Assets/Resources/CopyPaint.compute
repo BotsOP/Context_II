@@ -21,5 +21,5 @@ void CopyPaint (uint3 id : SV_DispatchThreadID)
 void DecayPaint (uint3 id : SV_DispatchThreadID)
 {
 	float4 maintPaintColor = mainPaintTex[id.xy];
-	mainPaintTex[id.xy] = saturate(float4(maintPaintColor - float4(0, 0, 0, decayRate)));
+	mainPaintTex[id.xy] = saturate(float4(maintPaintColor - float4(decayRate, decayRate, decayRate, decayRate)));
 }

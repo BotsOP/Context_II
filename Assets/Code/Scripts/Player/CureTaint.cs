@@ -41,7 +41,6 @@ public class CureTaint : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.F) && fuel >= 0)
         {
-            Debug.Log($"target hit");
             fuel -= fuelDepletionRate;
             slider.value = fuel;
             if(target) { target.GetComponent<IPaintable>().SuckTarget(sucker, SuckMultiplier); }
@@ -73,7 +72,6 @@ public class CureTaint : MonoBehaviour
 
         if (target != previousTarget && previousTarget)
         {
-            Debug.Log($"single target");
             previousTarget.GetComponent<IPaintable>().StoppedSucking();
         }
         else if (previousTargets.Length > 0 && !Input.GetKey(KeyCode.F))
@@ -91,7 +89,6 @@ public class CureTaint : MonoBehaviour
 
                 if (shouldStopSucking)
                 {
-                    Debug.Log($"multy target");
                     previousTarget1.GetComponent<IPaintable>().StoppedSucking();
                 }
             }

@@ -66,6 +66,7 @@ Shader "Unlit/SetPaint"
                 float m = mask(i.worldPos, _PaintPos, _Radius, _Hardness);
                 float edge = m * _Strength;
                 
+                //return float4(1,1,1,1);
                 return _Color * edge;
             }
             ENDCG
