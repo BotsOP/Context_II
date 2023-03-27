@@ -8,7 +8,6 @@ namespace FMODUnity
     [AddComponentMenu("FMOD Studio/FMOD Studio Event Emitter")]
     public class StudioEventEmitter : EventHandler
     {
-        public int buyValue = 0;
         public EventReference EventReference;
 
         [Obsolete("Use the EventReference field instead")]

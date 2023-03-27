@@ -1,26 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9094060165201465868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../FmodUNEPGame/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638150801622237975
-  FileSizes:
-  - Name: Desktop
-    Value: 1066
-  Exists: 1
---- !u!114 &-8504995296417987722
+--- !u!114 &-6998823748200297287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,21 +10,98 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/WorkShop/WSFeedback
+  m_Name: parameter:/BackgroundMusic/Intensity
   m_EditorClassIdentifier: 
-  Name: WSFeedback
+  Name: Intensity
   StudioPath: 
   Min: 0
   Max: 10
   Default: 0
   ID:
-    data1: 3994851500
-    data2: 1619414895
+    data1: 2022213938
+    data2: 1082727906
   Type: 0
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-5621248252949805283
+--- !u!114 &-5398192035256485818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Vacuum
+  m_EditorClassIdentifier: 
+  Path: event:/Vacuum
+  Guid:
+    Data1: 92226130
+    Data2: 1314003183
+    Data3: 1089162174
+    Data4: -716242899
+  Banks:
+  - {fileID: -3738348057646216928}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114336658992411097}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12096
+--- !u!114 &-4444933254298276685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BackgroundMusic
+  m_EditorClassIdentifier: 
+  Path: event:/BackgroundMusic
+  Guid:
+    Data1: -762278811
+    Data2: 1198207838
+    Data3: -975383648
+    Data4: -1263159074
+  Banks:
+  - {fileID: -3738348057646216928}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5700548095785416333}
+  - {fileID: -6998823748200297287}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 73795
+--- !u!114 &-3738348057646216928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FmodUNEPGame/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638153419464865843
+  FileSizes:
+  - Name: Desktop
+    Value: 2269792
+  Exists: 1
+--- !u!114 &-1538548792087997722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,16 +120,36 @@ MonoBehaviour:
     Data3: 671526809
     Data4: 468963912
   Banks:
-  - {fileID: 2901103554057454280}
+  - {fileID: -3738348057646216928}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -3994908148380894493}
+  - {fileID: -531126619535543250}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-3994908148380894493
+--- !u!114 &-1045369513091396557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FmodUNEPGame/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638153419464931245
+  FileSizes:
+  - Name: Desktop
+    Value: 1158
+  Exists: 1
+--- !u!114 &-531126619535543250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,68 +186,22 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -9094060165201465868}
-  - {fileID: 2901103554057454280}
+  - {fileID: -1045369513091396557}
+  - {fileID: -3738348057646216928}
   EditorEvents:
-  - {fileID: -5621248252949805283}
-  - {fileID: 7344686609135415207}
-  - {fileID: 4722936289073547832}
+  - {fileID: -5398192035256485818}
+  - {fileID: 4644778199582453831}
+  - {fileID: -1538548792087997722}
+  - {fileID: -4444933254298276685}
+  - {fileID: 5324910891418739078}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 2901103554057454280}
+  - {fileID: -3738348057646216928}
   StringsBanks:
-  - {fileID: -9094060165201465868}
-  cacheTime: 638150801622237975
+  - {fileID: -1045369513091396557}
+  cacheTime: 638153419464931245
   cacheVersion: 131601
---- !u!114 &2901103554057454280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ../FmodUNEPGame/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638150801622187332
-  FileSizes:
-  - Name: Desktop
-    Value: 1290560
-  Exists: 1
---- !u!114 &4722936289073547832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Vacuum
-  m_EditorClassIdentifier: 
-  Path: event:/Vacuum
-  Guid:
-    Data1: 92226130
-    Data2: 1314003183
-    Data3: 1089162174
-    Data4: -716242899
-  Banks:
-  - {fileID: 2901103554057454280}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 6540128532517444481}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 6048
---- !u!114 &6540128532517444481
+--- !u!114 &114336658992411097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,9 +211,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Vacuum/Slurp
+  m_Name: parameter:/Vacuum/Suck
   m_EditorClassIdentifier: 
-  Name: Slurp
+  Name: Suck
   StudioPath: 
   Min: 0
   Max: 7
@@ -194,7 +225,31 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &7344686609135415207
+--- !u!114 &2556839679281204018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/WorkShop/WSFeedback
+  m_EditorClassIdentifier: 
+  Name: WSFeedback
+  StudioPath: 
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 3994851500
+    data2: 1619414895
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &4644778199582453831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,12 +268,63 @@ MonoBehaviour:
     Data3: -1198113110
     Data4: -1383600367
   Banks:
-  - {fileID: 2901103554057454280}
+  - {fileID: -3738348057646216928}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -8504995296417987722}
+  - {fileID: 2556839679281204018}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5324910891418739078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Slurp
+  m_EditorClassIdentifier: 
+  Path: event:/Slurp
+  Guid:
+    Data1: -1983523112
+    Data2: 1073783464
+    Data3: 698570891
+    Data4: -75924928
+  Banks:
+  - {fileID: -3738348057646216928}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 496
+--- !u!114 &5700548095785416333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BackgroundMusic/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  StudioPath: 
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 874351857
+    data2: 2236141608
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1

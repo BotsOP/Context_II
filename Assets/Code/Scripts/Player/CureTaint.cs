@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,6 +22,7 @@ public class CureTaint : MonoBehaviour
 
     public FMOD.Studio.EventInstance instance;
     public FMODUnity.EventReference fmodEvent;
+    public AudioSource audioSource;
 
     private void OnEnable()
     {
@@ -47,13 +46,17 @@ public class CureTaint : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //instance.setParameterByName("Suck", 0);
         if (Input.GetKey(KeyCode.F) && fuel >= 0)
-        {
-            instance.setParameterByName("Slurp", 1);
+        {  
             Debug.Log($"target hit");
             fuel -= fuelDepletionRate;
             slider.value = fuel;
-            if(target) { target.GetComponent<IPaintable>().SuckTarget(sucker, SuckMultiplier); }
+            if (target) { target.GetComponent<IPaintable>().SuckTarget(sucker, SuckMultiplier); }
+            Input.GetKeyUp(KeyCode.F);
+            {
+                audioSource.Play();
+            }
         }
         else if (Input.GetKey(KeyCode.LeftShift) && targets.Length > 0)
         {
@@ -74,7 +77,7 @@ public class CureTaint : MonoBehaviour
         //         target1.GetComponent<IPaintable>().StoppedSucking();
         //     }
         // }
-        
+
         previousTarget = target;
         target = GetPossibleTarget();
         previousTargets = targets;
