@@ -1,29 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6998823748200297287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/BackgroundMusic/Intensity
-  m_EditorClassIdentifier: 
-  Name: Intensity
-  StudioPath: 
-  Min: 0
-  Max: 10
-  Default: 0
-  ID:
-    data1: 2022213938
-    data2: 1082727906
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &-5398192035256485818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +27,34 @@ MonoBehaviour:
   - {fileID: 114336658992411097}
   MinDistance: 1
   MaxDistance: 20
-  Length: 12096
+  Length: 13570
+--- !u!114 &-5209389835075773234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BackgroundMusic2D
+  m_EditorClassIdentifier: 
+  Path: event:/BackgroundMusic2D
+  Guid:
+    Data1: -1851010240
+    Data2: 1090323684
+    Data3: 1958981765
+    Data4: 1131176034
+  Banks:
+  - {fileID: -3738348057646216928}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 73795
 --- !u!114 &-4444933254298276685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +80,6 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters:
   - {fileID: 5700548095785416333}
-  - {fileID: -6998823748200297287}
   MinDistance: 1
   MaxDistance: 20
   Length: 73795
@@ -96,10 +98,10 @@ MonoBehaviour:
   Path: ../../FmodUNEPGame/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638153419464865843
+  lastModified: 638156049448848272
   FileSizes:
   - Name: Desktop
-    Value: 2269792
+    Value: 2270912
   Exists: 1
 --- !u!114 &-1538548792087997722
 MonoBehaviour:
@@ -144,10 +146,10 @@ MonoBehaviour:
   Path: ../../FmodUNEPGame/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638153419464931245
+  lastModified: 638156049448873347
   FileSizes:
   - Name: Desktop
-    Value: 1158
+    Value: 1162
   Exists: 1
 --- !u!114 &-531126619535543250
 MonoBehaviour:
@@ -194,12 +196,13 @@ MonoBehaviour:
   - {fileID: -1538548792087997722}
   - {fileID: -4444933254298276685}
   - {fileID: 5324910891418739078}
+  - {fileID: -5209389835075773234}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3738348057646216928}
   StringsBanks:
   - {fileID: -1045369513091396557}
-  cacheTime: 638153419464931245
+  cacheTime: 638156049448873347
   cacheVersion: 131601
 --- !u!114 &114336658992411097
 MonoBehaviour:

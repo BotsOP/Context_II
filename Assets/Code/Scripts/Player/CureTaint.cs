@@ -20,9 +20,11 @@ public class CureTaint : MonoBehaviour
     private Transform[] previousTargets;
     private Transform previousTarget;
 
-    public FMOD.Studio.EventInstance instance;
+    public FMOD.Studio.EventInstance instance; // vacuumSound
     public FMODUnity.EventReference fmodEvent;
-    public AudioSource audioSource;
+    public FMOD.Studio.EventInstance instance2; // backgroundMusic
+    public FMODUnity.EventReference fmodEvent2;
+    public AudioSource audioSource; //slurp
 
     private void OnEnable()
     {
@@ -42,18 +44,20 @@ public class CureTaint : MonoBehaviour
     {
         instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
         instance.start();
+        instance2 = FMODUnity.RuntimeManager.CreateInstance(fmodEvent2);
+        instance2.start();
     }
 
     private void FixedUpdate()
     {
-        //instance.setParameterByName("Suck", 0);
         if (Input.GetKey(KeyCode.F) && fuel >= 0)
         {  
             Debug.Log($"target hit");
             fuel -= fuelDepletionRate;
             slider.value = fuel;
             if (target) { target.GetComponent<IPaintable>().SuckTarget(sucker, SuckMultiplier); }
-            Input.GetKeyUp(KeyCode.F);
+
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 audioSource.Play();
             }
@@ -64,6 +68,11 @@ public class CureTaint : MonoBehaviour
             {
                 target1.GetComponent<IPaintable>().SuckTarget(sucker, SprintMultiplier);
             }
+        }
+       
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            audioSource.Stop();
         }
         // else if(!Input.GetKey(KeyCode.F))
         // {

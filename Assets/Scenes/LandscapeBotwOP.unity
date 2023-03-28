@@ -18138,7 +18138,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -31176,7 +31176,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58962801686938553}
-  m_LocalRotation: {x: -0.15614448, y: -0.18027987, z: 0.072410405, w: 0.96843934}
+  m_LocalRotation: {x: -0.15614448, y: -0.18027996, z: 0.072410405, w: 0.9684394}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31461,7 +31461,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58962802369060153}
-  m_LocalRotation: {x: -0.10770906, y: -0.1764491, z: 0.08130093, w: 0.97501516}
+  m_LocalRotation: {x: -0.10770907, y: -0.17644908, z: 0.08130093, w: 0.9750152}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31961,13 +31961,6 @@ MonoBehaviour:
       Data3: 1089162174
       Data4: -716242899
     Path: event:/Vacuum
-  fmodEvent2:
-    Guid:
-      Data1: -1983523112
-      Data2: 1073783464
-      Data3: 698570891
-      Data4: -75924928
-    Path: event:/Slurp
   audioSource: {fileID: 1262578846}
 --- !u!114 &919132148358309933
 MonoBehaviour:
@@ -32344,13 +32337,6 @@ MonoBehaviour:
   SprintMultiplier: 0.1
   sprintRadius: 5
   fmodEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  fmodEvent2:
     Guid:
       Data1: 0
       Data2: 0
@@ -32837,7 +32823,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3642573307530932434}
-  m_LocalRotation: {x: 0.09092403, y: 0.5680987, z: -0.06334274, w: 0.8154657}
+  m_LocalRotation: {x: 0.09092404, y: 0.56809866, z: -0.06334272, w: 0.81546575}
   m_LocalPosition: {x: 557.416, y: 5.879287, z: 469.08643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -18,7 +18,7 @@ public class ResourceOutcropScript : MonoBehaviour
     public GameObject OutcropCore;
 
     public bool Harvestable;
-
+    public AudioSource audioSource2; //pickup
     private void Start()
     {
         Harvestable = true;
@@ -48,6 +48,7 @@ public class ResourceOutcropScript : MonoBehaviour
             Player.GetComponent<PlayerInventory>().ListOfRawResources.Add(new ResourceScript(worth));
             OutcropCore.SetActive(false);
             Harvestable = false;
+            audioSource2.Play();
         }
     }
 }
