@@ -7,10 +7,10 @@ RWTexture2D<float4> mainPaintTex;
 float decayRate;
 
 [numthreads(32,32,1)]
-void CopyPaint (uint3 id : SV_DispatchThreadID)
+void CopyPaint (uint2 id : SV_DispatchThreadID)
 {
-	float4 paint = newPaintTex[id.xy];
-	float4 maintPaintColor = mainPaintTex[id.xy];
+	float4 paint = newPaintTex[id];
+	float4 maintPaintColor = mainPaintTex[id];
 	if(paint.a > maintPaintColor.a)
 	{
 		mainPaintTex[id.xy] = float4(lerp(maintPaintColor, paint, paint.a).xyzw);

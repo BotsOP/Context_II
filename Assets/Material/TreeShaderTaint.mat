@@ -72,7 +72,7 @@ Material:
     m_Floats:
     - _Green_Blue_Purple: 0
     - _PaintMetallic: 0
-    - _QueueControl: -1
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _Taintedness: 0
     m_Colors: []

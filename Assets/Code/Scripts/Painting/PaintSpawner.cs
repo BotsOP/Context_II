@@ -8,6 +8,7 @@ public class PaintSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject paintBall;
     [SerializeField] private int amountBalls = 10;
+    [SerializeField] private Color color;
     [SerializeField] private float timeTillStop = 1;
     [SerializeField] private float blobRadius = 2;
     [SerializeField] private float gravity = -9.81f;
@@ -41,7 +42,7 @@ public class PaintSpawner : MonoBehaviour
     {
         for (int i = 0; i < paintBlobs.Count; i++)
         {
-            bool hitSomething = paintBlobs[i].Update(Color.red, blobRadius, 0, 1, gravity, layerMask);
+            bool hitSomething = paintBlobs[i].Update(color, blobRadius, 0, 1, gravity, layerMask);
             if (hitSomething)
             {
                 paintBlobs.RemoveAt(i);

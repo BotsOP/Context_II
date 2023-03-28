@@ -19,8 +19,6 @@ public class CureTaint : MonoBehaviour
     [SerializeField] private float SprintMultiplier = 0.1f, sprintRadius;
     private Transform target;
     private Transform[] targets;
-    private Transform[] previousTargets;
-    private Transform previousTarget;
 
     private void OnEnable()
     {
@@ -52,47 +50,9 @@ public class CureTaint : MonoBehaviour
                 target1.GetComponent<IPaintable>().SuckTarget(sucker, SprintMultiplier);
             }
         }
-        // else if(!Input.GetKey(KeyCode.F))
-        // {
-        //     if(target) { target.GetComponent<IPaintable>().StoppedSucking(); }
-        // }
-        // else if(!Input.GetKey(KeyCode.LeftShift) && targets.Length > 0)
-        // {
-        //     foreach (var target1 in targets)
-        //     {
-        //         if(target1 == target) { continue; }
-        //         target1.GetComponent<IPaintable>().StoppedSucking();
-        //     }
-        // }
-        
-        previousTarget = target;
+
         target = GetPossibleTarget();
-        previousTargets = targets;
         targets = GetAllTargets();
-
-        if (target != previousTarget && previousTarget)
-        {
-            previousTarget.GetComponent<IPaintable>().StoppedSucking();
-        }
-        else if (previousTargets.Length > 0 && !Input.GetKey(KeyCode.F))
-        {
-            foreach (var previousTarget1 in previousTargets)
-            {
-                bool shouldStopSucking = false;
-                foreach (var target1 in targets)
-                {
-                    if (target1 != previousTarget1)
-                    {
-                        shouldStopSucking = true;
-                    }
-                }
-
-                if (shouldStopSucking)
-                {
-                    previousTarget1.GetComponent<IPaintable>().StoppedSucking();
-                }
-            }
-        }
     }
 
     private Transform[] GetAllTargets()

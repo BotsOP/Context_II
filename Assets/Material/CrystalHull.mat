@@ -33,11 +33,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_41271c3c5f484ca2a435c65087a81705:
-        m_Texture: {fileID: 2800000, guid: 21ae22f8e48ee5243afe4cb8f93d9035, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTexture:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_64d338cbad0a40338991db2af422c295_Texture_1:
+        m_Texture: {fileID: 2800000, guid: a68ac816926a89043968f3049dafbe00, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c795f9f2346f4c1594253cedb2a06504_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 21ae22f8e48ee5243afe4cb8f93d9035, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap:

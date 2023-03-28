@@ -22,8 +22,8 @@ public class PaintTarget : MonoBehaviour, IPaintable
     private Renderer rend;
     private Material SetPaint;
     private ComputeShader CopyPaint;
-    public RenderTexture newPaintTex;
-    public RenderTexture allPaintTex;
+    private RenderTexture newPaintTex;
+    private RenderTexture allPaintTex;
     private CommandBuffer commandBuffer;
     private int kernelID;
     private Vector2 threadGroupSize;
@@ -31,7 +31,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
     private VFXTransformBinder2 suckerTransformBinding;
     private float timeSinceLastActivation;
     private bool isBeingSucked;
-    public Material displayMat;
+    private Material displayMat;
 
     #region shader properties
     private readonly static int MaskTexture = Shader.PropertyToID("_MaskTexture");
@@ -61,11 +61,17 @@ public class PaintTarget : MonoBehaviour, IPaintable
         kernelID = 0;
         CopyPaint.GetKernelThreadGroupSizes(kernelID, out uint threadGroupSizeX, out uint threadGroupSizeY, out _);
         
-        newPaintTex = new CustomRenderTexture(textureSize, textureSize, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Linear);
-        newPaintTex.enableRandomWrite = true;
+        newPaintTex = new CustomRenderTexture(textureSize, textureSize, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Linear)
+        {
+            enableRandomWrite = true,
+            filterMode = FilterMode.Point,
+        };
         
-        allPaintTex = new CustomRenderTexture(textureSize, textureSize, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Linear);
-        allPaintTex.enableRandomWrite = true;
+        allPaintTex = new CustomRenderTexture(textureSize, textureSize, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Linear)
+        {
+            enableRandomWrite = true,
+            filterMode = FilterMode.Point,
+        };
         
         SetPaint.SetTexture(Tex, newPaintTex);
         displayMat.SetTexture(MaskTexture, allPaintTex);
@@ -92,6 +98,11 @@ public class PaintTarget : MonoBehaviour, IPaintable
         }
     }
 
+    private void LateUpdate()
+    {
+        isBeingSucked = false;
+    }
+
     private void CheckToDeactivateParticles()
     {
         if (Time.time > timeSinceLastActivation + deactivationDelay)
@@ -115,7 +126,6 @@ public class PaintTarget : MonoBehaviour, IPaintable
         int amountParticlesToSpawn = (int)Mathf.Lerp(-amountOilBlobs / 3.0f, amountOilBlobs, taintedness);
             
         vfx.SetInt("SpawnRate", amountParticlesToSpawn);
-        
     }
 
     public float GetTaintedness()
@@ -145,6 +155,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
         taintedness += taintGainRate;
         taintedness = Mathf.Clamp01(taintedness);
         displayMat.SetFloat(Taintedness, taintedness);
+        
     }
 
     public void SuckTarget(Transform suckTransform, float suckingForce = 1f)
@@ -153,14 +164,5 @@ public class PaintTarget : MonoBehaviour, IPaintable
         timeSinceLastActivation = Time.timeSinceLevelLoad;
         suckerTransformBinding.Target = suckTransform;
         DecayPaint(suckingForce);
-    }
-    public void StoppedSucking()
-    {
-        isBeingSucked = false;
-    }
-
-    private Vector3 MultiplyVector3(Vector3 a, Vector3 b)
-    {
-        return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
     }
 }

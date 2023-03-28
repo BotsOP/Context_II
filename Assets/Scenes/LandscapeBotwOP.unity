@@ -823,7 +823,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: -1080766315349166975, guid: 1d0353044a6b9cb4191bca51a1d0832f,
+      - m_Value: {fileID: 1862348260634616651, guid: 285bc2ddbf5fbf949a409d54da71f18d,
           type: 3}
         m_Name: Mesh
         m_Overridden: 1
@@ -1056,9 +1056,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 684118975}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &74157030
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5899,9 +5896,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 1270555950}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &378078269
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6288,8 +6282,8 @@ Transform:
   m_GameObject: {fileID: 406625162}
   m_LocalRotation: {x: -0, y: 0.33873546, z: -0, w: 0.9408817}
   m_LocalPosition: {x: 583.79, y: 2.46, z: 468.62}
-  m_LocalScale: {x: 1.4773, y: 1.4773, z: 1.4773}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
@@ -6871,9 +6865,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 1541732129}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &425149575
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8814,15 +8805,12 @@ MonoBehaviour:
   taintedness: 0
   taintDepletionRate: 0.01
   taintGainRate: 1
-  amountOilBlobs: 500
+  amountOilBlobs: 20000
   deactivationDelay: 4
   textureSize: 1024
   displayMatProperties: {fileID: 2100000, guid: 49f4c6374434d184896a9abca32c9aff,
     type: 2}
   particles: {fileID: 1641418535}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &540997370
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11525,15 +11513,12 @@ MonoBehaviour:
   taintedness: 0
   taintDepletionRate: 0.01
   taintGainRate: 1
-  amountOilBlobs: 500
+  amountOilBlobs: 200000
   deactivationDelay: 4
   textureSize: 1024
   displayMatProperties: {fileID: 2100000, guid: 49f4c6374434d184896a9abca32c9aff,
     type: 2}
   particles: {fileID: 43782050}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &748976409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13132,7 +13117,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: -1080766315349166975, guid: 1d0353044a6b9cb4191bca51a1d0832f,
+      - m_Value: {fileID: -6960971791199173531, guid: 285bc2ddbf5fbf949a409d54da71f18d,
           type: 3}
         m_Name: Mesh
         m_Overridden: 1
@@ -13624,7 +13609,7 @@ Transform:
   m_GameObject: {fileID: 884854425}
   m_LocalRotation: {x: -0, y: 0.33873546, z: -0, w: 0.9408817}
   m_LocalPosition: {x: 583.43005, y: 6.271434, z: 468.76434}
-  m_LocalScale: {x: 1.4773002, y: 1.4773, z: 1.4773002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1675828566}
@@ -14104,7 +14089,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916716712}
   m_LocalRotation: {x: -0, y: 0.33873546, z: -0, w: 0.9408817}
-  m_LocalPosition: {x: 582.13, y: 3.69, z: 470.74}
+  m_LocalPosition: {x: 596.54, y: 3.69, z: 450.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15508,9 +15493,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 113716701}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1009651061
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16254,9 +16236,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 22680312}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1039602516
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19452,7 +19431,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: -1080766315349166975, guid: 1d0353044a6b9cb4191bca51a1d0832f,
+      - m_Value: {fileID: 3213676396146855151, guid: 285bc2ddbf5fbf949a409d54da71f18d,
           type: 3}
         m_Name: Mesh
         m_Overridden: 1
@@ -19910,7 +19889,7 @@ Transform:
   m_GameObject: {fileID: 1308733831}
   m_LocalRotation: {x: -0, y: 0.33873546, z: -0, w: 0.9408817}
   m_LocalPosition: {x: 583.79, y: 6.433937, z: 468.62}
-  m_LocalScale: {x: 1.4773002, y: 1.4773, z: 1.4773002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 540997367}
@@ -20178,6 +20157,7 @@ MonoBehaviour:
   paintBall: {fileID: 4721753777586035325, guid: 5835fc6340d8e574faef7b402fbc2326,
     type: 3}
   amountBalls: 100
+  color: {r: 0, g: 0, b: 0, a: 1}
   timeTillStop: 1
   blobRadius: 2
   gravity: -0.5
@@ -21226,9 +21206,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 1363100636}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1403165808
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21570,9 +21547,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 40560414}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1435944221
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21907,7 +21881,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: -1080766315349166975, guid: 1d0353044a6b9cb4191bca51a1d0832f,
+      - m_Value: {fileID: 2047747232209866718, guid: 9f2599947056a394799561bf59c92b9c,
           type: 3}
         m_Name: Mesh
         m_Overridden: 1
@@ -23428,9 +23402,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 1396554839}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1563023002
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23966,16 +23937,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618896332}
-  m_LocalRotation: {x: -0, y: -0.23168299, z: -0, w: 0.97279143}
-  m_LocalPosition: {x: 583.79, y: 10.851064, z: 468.62}
-  m_LocalScale: {x: 1.4773, y: 1.4772999, z: 1.4773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 583.79, y: 9.84, z: 468.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 748976406}
   - {fileID: 43782051}
   m_Father: {fileID: 0}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: -66.392, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1624513586
 GameObject:
   m_ObjectHideFlags: 0
@@ -24117,9 +24088,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 1361066312}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1636542896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24324,10 +24292,10 @@ VisualEffect:
       - m_Value: {x: -0, y: 39.599697, z: -0}
         m_Name: MeshTransform_angles
         m_Overridden: 1
-      - m_Value: {x: 582.13, y: 6.8, z: 470.74}
+      - m_Value: {x: 583.79, y: 6.433937, z: 468.62}
         m_Name: MeshTransform_position
         m_Overridden: 1
-      - m_Value: {x: 1, y: 1, z: 1}
+      - m_Value: {x: 2.6705, y: 2.6705, z: 2.6705}
         m_Name: MeshTransform_scale
         m_Overridden: 1
       - m_Value: {x: 0.859, y: 1.016, z: 0.818}
@@ -24336,7 +24304,7 @@ VisualEffect:
       - m_Value: {x: -0, y: 39.599697, z: -0}
         m_Name: ParticleTransform_angles
         m_Overridden: 1
-      - m_Value: {x: 582.13, y: 5.21, z: 470.74}
+      - m_Value: {x: 583.79, y: 6.433937, z: 468.62}
         m_Name: ParticleTransform_position
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
@@ -24356,7 +24324,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: -1080766315349166975, guid: 1d0353044a6b9cb4191bca51a1d0832f,
+      - m_Value: {fileID: -5869019706999379441, guid: 285bc2ddbf5fbf949a409d54da71f18d,
           type: 3}
         m_Name: Mesh
         m_Overridden: 1
@@ -24925,15 +24893,12 @@ MonoBehaviour:
   taintedness: 0
   taintDepletionRate: 0.01
   taintGainRate: 1
-  amountOilBlobs: 500
+  amountOilBlobs: 20000
   deactivationDelay: 4
   textureSize: 1024
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 840798982}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1675828569
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26507,9 +26472,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 1030079935}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1792856294
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26909,16 +26871,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808314222}
-  m_LocalRotation: {x: -0, y: -0.23168299, z: -0, w: 0.97279143}
-  m_LocalPosition: {x: 583.79, y: 10.851064, z: 468.62}
-  m_LocalScale: {x: 1.4773, y: 1.4772999, z: 1.4773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 583.79, y: 9.84, z: 468.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1836245328}
   - {fileID: 1288500340}
   m_Father: {fileID: 0}
   m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: -66.392, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1809306579
 GameObject:
   m_ObjectHideFlags: 0
@@ -27347,15 +27309,12 @@ MonoBehaviour:
   taintedness: 0
   taintDepletionRate: 0.01
   taintGainRate: 1
-  amountOilBlobs: 500
+  amountOilBlobs: 200000
   deactivationDelay: 4
   textureSize: 1024
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 1288500339}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1836245331
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29151,9 +29110,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 1222815198}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1978506274
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29557,9 +29513,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 213768075}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1987849170
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29720,9 +29673,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 1880694659}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &1995204632
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30643,9 +30593,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 285103059}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &2098729247
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31814,9 +31761,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 559314139}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!23 &2146715929
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32141,7 +32085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58962801667174192}
   m_LocalRotation: {x: 0.18566805, y: 0.6938745, z: -0.19270548, w: 0.66852844}
-  m_LocalPosition: {x: 557.416, y: 5.879287, z: 469.08643}
+  m_LocalPosition: {x: 557.41595, y: 5.879287, z: 469.08655}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32175,7 +32119,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58962801686938553}
-  m_LocalRotation: {x: -0.15614448, y: -0.18027996, z: 0.072410405, w: 0.9684394}
+  m_LocalRotation: {x: -0.15614495, y: -0.18027301, z: 0.0724076, w: 0.9684408}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32381,7 +32325,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58962801975714992}
-  m_LocalRotation: {x: -0.20326062, y: -0.18360162, z: 0.0635184, w: 0.9596568}
+  m_LocalRotation: {x: -0.20326114, y: -0.18359455, z: 0.06351592, w: 0.95965815}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32460,7 +32404,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58962802369060153}
-  m_LocalRotation: {x: -0.10770908, y: -0.1764491, z: 0.08130093, w: 0.97501516}
+  m_LocalRotation: {x: -0.10770946, y: -0.17644243, z: 0.08129778, w: 0.9750166}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32700,7 +32644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147712992715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.89, y: 1.59, z: 0.06}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.9179, y: 2.9179, z: 2.9179}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32937,8 +32881,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2115092315}
-  fuel: 0
-  fuelDepletionRate: 0.005
+  fuel: 1
+  fuelDepletionRate: 0
   sucker: {fileID: 2237449617937370594}
   cam: {fileID: 3642573307530932433}
   camFollow: {fileID: 58962801667174194}
@@ -33704,15 +33648,12 @@ MonoBehaviour:
   taintedness: 0
   taintDepletionRate: 0.01
   taintGainRate: 1
-  amountOilBlobs: 500
+  amountOilBlobs: 20000
   deactivationDelay: 4
   textureSize: 1024
   displayMatProperties: {fileID: 2100000, guid: 10d95053957985b4f92d52e3688797b2,
     type: 2}
   particles: {fileID: 1441974339}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!64 &3469287837917802710
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33809,8 +33750,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3642573307530932434}
-  m_LocalRotation: {x: 0.09092404, y: 0.56809866, z: -0.06334272, w: 0.81546575}
-  m_LocalPosition: {x: 557.416, y: 5.879287, z: 469.08643}
+  m_LocalRotation: {x: 0.09092333, y: 0.5681049, z: -0.063343264, w: 0.8154615}
+  m_LocalPosition: {x: 557.41595, y: 5.879287, z: 469.08655}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34847,9 +34788,6 @@ MonoBehaviour:
   displayMatProperties: {fileID: 2100000, guid: 3a2601510c3bb0e4997051879b8a0454,
     type: 2}
   particles: {fileID: 5124437226662869186}
-  newPaintTex: {fileID: 0}
-  allPaintTex: {fileID: 0}
-  displayMat: {fileID: 0}
 --- !u!1 &8670540288149633111
 GameObject:
   m_ObjectHideFlags: 0
