@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TreeShaderMat
-  m_Shader: {fileID: -6465566751694194690, guid: 58102858517e1c945bcd2de0acead4d0,
+  m_Shader: {fileID: -6465566751694194690, guid: ae04c738d52098d469c78cca2e5f8101,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -30,6 +30,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_004d0d2ca9ee4febba15dbd97395605f_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 8c800dedf68dff94fa1da5a033741a64, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_48dc35efdb394260998a209f2d82c0d1_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 8c800dedf68dff94fa1da5a033741a64, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_55908ab5a16f4a649228302b6b6ba528_Texture_1:
@@ -73,6 +81,7 @@ Material:
     - _Green_Blue_Purple: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Shriveling: 0
     - _Wilting: 0
     m_Colors: []
   m_BuildTextureStacks: []
