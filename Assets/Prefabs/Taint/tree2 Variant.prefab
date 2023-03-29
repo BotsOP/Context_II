@@ -14,6 +14,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2936987494248338980, guid: 056ef64bdc01ff74495d5ac11529ec16,
         type: 3}
+    - target: {fileID: 6695786892979918657, guid: dd0f82d53380f674183167febc3ee944,
+        type: 3}
+      propertyPath: timeUntilDead
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6695786892979918658, guid: dd0f82d53380f674183167febc3ee944,
         type: 3}
       propertyPath: m_Mesh
@@ -29,12 +34,12 @@ PrefabInstance:
     - target: {fileID: 7838889382337010492, guid: dd0f82d53380f674183167febc3ee944,
         type: 3}
       propertyPath: m_Name
-      value: tree2
+      value: tree2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7838889382337010493, guid: dd0f82d53380f674183167febc3ee944,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7838889382337010493, guid: dd0f82d53380f674183167febc3ee944,
         type: 3}

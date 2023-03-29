@@ -63,7 +63,6 @@ public class ShopScript : MonoBehaviour
         {
             shopManager.GoodShopDict.Add(ShopName, this);
         }
-
     }
 
     private void Update()

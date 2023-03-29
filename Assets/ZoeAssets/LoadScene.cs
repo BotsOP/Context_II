@@ -9,7 +9,7 @@ public class LoadScene : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("EconomyTestingScene");
+        SceneManager.LoadScene("EconomyTestingSceneBotsOP2");
     }
     public void ExitGame()
     {

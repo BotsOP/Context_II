@@ -1,16 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PaintTargetManager : MonoBehaviour
 {
-    private PaintTarget[] paintTargets;
+    [SerializeField] private Slider slider;
+    static public PaintTarget[] paintTargets;
     void Start()
     {
         paintTargets = FindObjectsOfType<PaintTarget>();
     }
 
-    public float GetWorldTaintedness()
+    private void Update()
+    {
+        if (Time.frameCount % 60 == 0)
+        {
+            slider.value = GetWorldTaintedness();
+        }
+    }
+
+    static public float GetWorldTaintedness()
     {
         float taintedness = 0;
         foreach (var target in paintTargets)

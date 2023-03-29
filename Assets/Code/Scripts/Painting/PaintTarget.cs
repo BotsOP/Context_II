@@ -18,6 +18,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
     [SerializeField] private Material displayMatProperties;
     [SerializeField] private GameObject particles;
     
+    private float timeUntilDead = 300;
     private VisualEffect vfx;
     private Renderer rend;
     private Material SetPaint;
@@ -32,6 +33,9 @@ public class PaintTarget : MonoBehaviour, IPaintable
     private float timeSinceLastActivation;
     private bool isBeingSucked;
     private Material displayMat;
+    private float startDeadTime;
+    private bool isDead;
+    private bool isCompletelyDead;
 
     #region shader properties
     private readonly static int MaskTexture = Shader.PropertyToID("_MaskTexture");
@@ -94,6 +98,28 @@ public class PaintTarget : MonoBehaviour, IPaintable
         {
             vfx.SetInt("SpawnRate", 0);
         }
+
+        if (Math.Abs(taintedness - 1) < 0.001f && !isDead)
+        {
+            isDead = true;
+            startDeadTime = Time.timeSinceLevelLoad;
+        }
+        if (Math.Abs(taintedness - 1) > 0.1f && isDead)
+        {
+            displayMat.SetFloat("_Shriviling", 0);
+            isDead = false;
+        }
+
+        if (isDead)
+        {
+            if (Time.timeSinceLevelLoad > startDeadTime + timeUntilDead)
+            {
+                isCompletelyDead = true;
+            }
+            float scaledDeathTime = Time.timeSinceLevelLoad / (startDeadTime + timeUntilDead);
+            scaledDeathTime = Mathf.Clamp01(scaledDeathTime);
+            displayMat.SetFloat("_Shriviling", scaledDeathTime);
+        }
     }
 
     private void LateUpdate()
@@ -113,6 +139,9 @@ public class PaintTarget : MonoBehaviour, IPaintable
 
     public void DecayPaint(float suckingForce = 1f)
     {
+        if (isCompletelyDead)
+            return;
+        
         kernelID = 1;
         CopyPaint.SetFloat("decayRate", taintDepletionRate * suckingForce);
         CopyPaint.SetTexture(kernelID, "mainPaintTex", allPaintTex);
@@ -124,6 +153,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
         int amountParticlesToSpawn = (int)Mathf.Lerp(-amountOilBlobs / 3.0f, amountOilBlobs, taintedness);
             
         vfx.SetInt("SpawnRate", amountParticlesToSpawn);
+
     }
 
     public float GetTaintedness()
@@ -132,6 +162,9 @@ public class PaintTarget : MonoBehaviour, IPaintable
     }
     public void Paint(Vector3 position, Color color, float hardness = 1, float strength = 1, float radius = 1)
     {
+        if (isCompletelyDead)
+            return;
+        
         kernelID = 0;
         SetPaint.SetVector(PaintPos, position);
         SetPaint.SetFloat(Hardness, hardness);
@@ -159,6 +192,9 @@ public class PaintTarget : MonoBehaviour, IPaintable
 
     public void SuckTarget(Transform suckTransform, float suckingForce = 1f)
     {
+        if (isCompletelyDead)
+            return;
+        
         isBeingSucked = true;
         timeSinceLastActivation = Time.timeSinceLevelLoad;
         suckerTransformBinding.Target = suckTransform;

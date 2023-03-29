@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class PaintSpawner : MonoBehaviour
 {
+    public GameObject parentCloud;
     [SerializeField] private GameObject paintBall;
     [SerializeField] private int amountBalls = 10;
     [SerializeField] private Color color;
@@ -13,11 +14,19 @@ public class PaintSpawner : MonoBehaviour
     [SerializeField] private float blobRadius = 2;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private int randomOffset;
+    private float startTime;
+    private float time => Time.timeSinceLevelLoad - startTime;
     private List<PaintBlob> paintBlobs = new List<PaintBlob>();
     private void OnDrawGizmos()
     {
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawWireCube(Vector3.zero, new Vector3(transform.localScale.x, 0, transform.localScale.z));
+    }
+    private void OnEnable()
+    {
+        startTime = Time.timeSinceLevelLoad;
+        randomOffset = Random.Range(0, 10);
     }
 
     private void Update()
@@ -29,16 +38,28 @@ public class PaintSpawner : MonoBehaviour
                 SpawnPaintBall();
             }
         }
-        if (Time.timeSinceLevelLoad < timeTillStop)
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if (time < timeTillStop + randomOffset && time > randomOffset)
         {
             for (int i = 0; i < amountBalls; i++)
             {
                 SpawnPaintBall();
             }
         }
+        
+        UpdatePaintBalls();
+
+        if (paintBlobs.Count == 0 && time > randomOffset + 1)
+        {
+            parentCloud.SetActive(false);
+        }
     }
 
-    private void FixedUpdate()
+    public void UpdatePaintBalls()
     {
         for (int i = 0; i < paintBlobs.Count; i++)
         {
@@ -51,7 +72,7 @@ public class PaintSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnPaintBall()
+    public void SpawnPaintBall()
     {
         float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
         float x = Mathf.Sin(angle);
