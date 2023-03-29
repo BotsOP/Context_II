@@ -26,6 +26,11 @@ public class PlayerMovement : MonoBehaviour {
 	private bool OnGround => groundContactCount > 0;
 	private bool OnSteep => steepContactCount > 0;
 
+	public GameObject Hoverboard;
+	public GameObject HazmatMesh;
+
+	private Transform NeutralTransform;
+
 	void OnValidate () {
 		minGroundDotProduct = Mathf.Cos(maxGroundAngle * Mathf.Deg2Rad);
 		minStairsDotProduct = Mathf.Cos(maxStairsAngle * Mathf.Deg2Rad);
@@ -35,9 +40,15 @@ public class PlayerMovement : MonoBehaviour {
 		body = GetComponent<Rigidbody>();
 		speed = maxSpeed;
 		OnValidate();
+		
 	}
+    private void Start()
+    {
+        Hoverboard.SetActive(false);
+        NeutralTransform = HazmatMesh.transform;
+    }
 
-	void Update () {
+    void Update () {
 		Vector2 playerInput;
 		playerInput.x = Input.GetAxis("Horizontal");
 		playerInput.y = Input.GetAxis("Vertical");
@@ -46,10 +57,24 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
 			speed = sprintSpeed;
+			if(Hoverboard.activeInHierarchy == false)
+			{
+                Hoverboard.SetActive(true);
+                HazmatMesh.transform.SetParent(Hoverboard.transform);
+                HazmatMesh.transform.position = Hoverboard.transform.position;
+            }
+			
 		}
 		else
 		{
 			speed = maxSpeed;
+			if(Hoverboard.activeInHierarchy == true)
+			{
+                Hoverboard.SetActive(false);
+                HazmatMesh.transform.SetParent(this.gameObject.transform);
+                HazmatMesh.transform.localPosition = NeutralTransform.localPosition;
+            }
+			
 		}
 
 		if (playerInputSpace) {
@@ -88,6 +113,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		body.velocity = velocity;
 		ClearState();
+		
+		
 	}
 
 	void ClearState () {

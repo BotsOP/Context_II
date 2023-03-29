@@ -20,13 +20,15 @@ public class ResourceOutcropScript : MonoBehaviour
     public bool Harvestable;
     public AudioSource PickUp;
 
+    public int RespawnTime = 100;
+
     private void Start()
     {
         Harvestable = true;
         OutcropCore.SetActive(true);
         VariationCoefficient = Random.Range(0.5f, 1.5f);
         this.gameObject.transform.localScale = Vector3.Scale(new Vector3(VariationCoefficient, VariationCoefficient, VariationCoefficient), 
-            this.gameObject.transform.localScale); //check if this works
+                                                             this.gameObject.transform.localScale); //check if this works
         worth = economyManager.baseResourceValue * VariationCoefficient;
         InfluenceRadius = resourceManager.baseResourceInfluenceRadius * VariationCoefficient;
 
@@ -50,6 +52,14 @@ public class ResourceOutcropScript : MonoBehaviour
             OutcropCore.SetActive(false);
             Harvestable = false;
             PickUp.Play();
+            StartCoroutine(Timer());
         }
+    }
+
+    public IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(RespawnTime);
+        OutcropCore.SetActive(true);
+        Harvestable = true;
     }
 }

@@ -7,18 +7,31 @@ public class GameManager : MonoBehaviour
 {
     public float HealedVegPercentage; //total percentage of vegetation that has been 'healed'
     public int CurrentProgressState; //ranges from -2 to 5 and marks the amount of progress the player has made
+    private PaintTarget[] paintTargets;
 
     public EconomyManager economyManager;
+
+    private void Awake()
+    {
+        paintTargets = FindObjectsOfType<PaintTarget>();
+    }
 
     private void Update()
     {
         HealedVegPercentage = CalculateHealedVegPercentage();
+        CheckProgressState();
+
     }
 
     private float CalculateHealedVegPercentage()
     {
-        //throw new NotImplementedException();
-        return 0;
+        float vegPercentage = 0;
+        foreach (var target in paintTargets)
+        {
+            vegPercentage += target.taintedness;
+        }
+        vegPercentage /= paintTargets.Length;
+        return vegPercentage * 100;
     }
 
     private void CheckProgressState()
@@ -60,7 +73,7 @@ public class GameManager : MonoBehaviour
         {
             CurrentProgressState = 5;
         }
-        else if (HealedVegPercentage >= 90 && HealedVegPercentage <= 100)
+        else if (HealedVegPercentage >= 90 && HealedVegPercentage <= 100 && Time.timeSinceLevelLoad > 10)
         {
             //trigger good ending
             return;
