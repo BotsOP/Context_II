@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
 			transform.rotation = quaternion.LookRotation(new Vector3(velocity.x, 0, velocity.z), transform.up);
 		}
 		animator.SetBool("isRunning", velocity.magnitude > 0.1);
-		//animator.SetBool("isJumping", !OnGround);
+		animator.SetBool("isJumping", !OnGround);
 	}
 
 	void FixedUpdate () {

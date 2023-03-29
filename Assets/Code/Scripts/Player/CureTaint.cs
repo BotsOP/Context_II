@@ -19,6 +19,11 @@ public class CureTaint : MonoBehaviour
     [SerializeField] private float SprintMultiplier = 0.1f, sprintRadius;
     private Transform target;
     private Transform[] targets;
+    private Transform[] previousTargets;
+    private Transform previousTarget;
+
+    public FMOD.Studio.EventInstance instance;
+    public FMODUnity.EventReference fmodEvent;
 
     private void OnEnable()
     {
@@ -34,11 +39,18 @@ public class CureTaint : MonoBehaviour
         fuel += amountFuel;
         slider.value = fuel;
     }
+    private void Start()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        instance.start();
+    }
 
     private void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.F) && fuel >= 0)
         {
+            instance.setParameterByName("Slurp", 1);
+            Debug.Log($"target hit");
             fuel -= fuelDepletionRate;
             slider.value = fuel;
             if(target) { target.GetComponent<IPaintable>().SuckTarget(sucker, SuckMultiplier); }

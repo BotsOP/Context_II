@@ -15,9 +15,14 @@ public class ResourceOutcropScript : MonoBehaviour
     public bool activated;
 
     public GameObject Player;
+    public GameObject OutcropCore;
+
+    public bool Harvestable;
 
     private void Start()
     {
+        Harvestable = true;
+        OutcropCore.SetActive(true);
         VariationCoefficient = Random.Range(0.5f, 1.5f);
         this.gameObject.transform.localScale = Vector3.Scale(new Vector3(VariationCoefficient, VariationCoefficient, VariationCoefficient), 
             this.gameObject.transform.localScale); //check if this works
@@ -38,7 +43,11 @@ public class ResourceOutcropScript : MonoBehaviour
 
     public void ExtractResource()
     {
-        Player.GetComponent<PlayerInventory>().ListOfRawResources.Add( new ResourceScript(worth));
-        Destroy(this.gameObject); //reset state of outcrop to emptuy
+        if (Harvestable)
+        {
+            Player.GetComponent<PlayerInventory>().ListOfRawResources.Add(new ResourceScript(worth));
+            OutcropCore.SetActive(false);
+            Harvestable = false;
+        }
     }
 }
