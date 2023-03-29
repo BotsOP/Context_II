@@ -10,10 +10,19 @@ public class ShopManager : MonoBehaviour
 
     public ShopScript CurrentShop;
 
+    public FMOD.Studio.EventInstance instance;
+    public FMODUnity.EventReference bigCompany;
+    public FMOD.Studio.EventInstance instance2;
+    public FMODUnity.EventReference workShop;
+    public int badShop = 0;
+    public int goodShop = 0;
+
     private void Start()
     {
         CurrentShop = null;
         StartCoroutine(waitAndCheckContents());
+        instance = FMODUnity.RuntimeManager.CreateInstance(bigCompany);
+        instance2 = FMODUnity.RuntimeManager.CreateInstance(workShop);
     }
 
     private IEnumerator waitAndCheckContents()
@@ -41,6 +50,18 @@ public class ShopManager : MonoBehaviour
                 break;
             case 3:
                 CurrentShop.ConfirmOrder();
+                if (BadShopDict.ContainsValue(CurrentShop))
+                {
+                    badShop++;
+                    instance.setParameterByName("BCFeedback", badShop);
+                    instance.start();
+                }
+                else if (GoodShopDict.ContainsValue(CurrentShop))
+                {
+                    goodShop++;
+                    instance2.setParameterByName("WSFeedback", goodShop);
+                    instance2.start();
+                }
                 break;
             case 4:
                 CurrentShop.CloseShopWindow();
