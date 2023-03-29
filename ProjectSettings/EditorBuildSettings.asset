@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BotsOP Scene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/LandscapeBotwOP.unity
+    guid: dce3a872d92e1db4d8b7f6e5624b9ee9
+  - enabled: 1
+    path: Assets/Scenes/EconomyTestingScene.unity
+    guid: 034a56886086bf743bd4cd2f53aa56e6
+  - enabled: 1
+    path: Assets/Scenes/BadEndScene.unity
+    guid: 22bd07fb64bcba24aa748f549f8a15e1
+  - enabled: 1
+    path: Assets/Scenes/GoodEndScene.unity
+    guid: d63237c43913ce6449469403aaccae1e
   m_configObjects: {}
