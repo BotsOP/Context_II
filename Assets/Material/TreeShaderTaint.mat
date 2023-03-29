@@ -32,6 +32,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0ecb2a322202b6e4bbbfdd32747ecfe9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_23d44fadaac7455eae19ca4c4de32de1_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 8c800dedf68dff94fa1da5a033741a64, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_55908ab5a16f4a649228302b6b6ba528_Texture_1:
         m_Texture: {fileID: 2800000, guid: b4a79620bdc09864bbc16caba4a86c7f, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -74,6 +78,7 @@ Material:
     - _PaintMetallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Shriviling: 0
     - _Taintedness: 0
     m_Colors: []
   m_BuildTextureStacks: []
