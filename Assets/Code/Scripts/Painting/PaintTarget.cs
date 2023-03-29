@@ -9,7 +9,7 @@ using UnityEngine.VFX.Utility;
 
 public class PaintTarget : MonoBehaviour, IPaintable
 {
-    [SerializeField] private float taintedness;
+    public float taintedness;
     [SerializeField] private float taintDepletionRate = 0.1f;
     [SerializeField] private float taintGainRate = 0.1f;
     [SerializeField] private int amountOilBlobs = 500;
@@ -64,13 +64,11 @@ public class PaintTarget : MonoBehaviour, IPaintable
         newPaintTex = new CustomRenderTexture(textureSize, textureSize, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Linear)
         {
             enableRandomWrite = true,
-            filterMode = FilterMode.Point,
         };
         
         allPaintTex = new CustomRenderTexture(textureSize, textureSize, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Linear)
         {
             enableRandomWrite = true,
-            filterMode = FilterMode.Point,
         };
         
         SetPaint.SetTexture(Tex, newPaintTex);
@@ -150,6 +148,7 @@ public class PaintTarget : MonoBehaviour, IPaintable
 
         Graphics.ExecuteCommandBuffer(commandBuffer);
         commandBuffer.Clear();
+        
 
         displayMat.SetTexture(MaskTexture, allPaintTex);
         taintedness += taintGainRate;

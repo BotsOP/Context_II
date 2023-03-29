@@ -41,35 +41,41 @@ public class CureTaint : MonoBehaviour
     }
     private void Start()
     {
-        instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
-        instance.start();
+        //instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        //instance.start();
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.F) && fuel >= 0)
+        target = GetPossibleTarget();
+        if (Input.GetKey(KeyCode.F) && fuel >= 0 && target)
         {
-            instance.setParameterByName("Slurp", 1);
-            Debug.Log($"target hit");
+            //instance.setParameterByName("Slurp", 1);
             fuel -= fuelDepletionRate;
             slider.value = fuel;
-            if(target) { target.GetComponent<IPaintable>().SuckTarget(sucker, SuckMultiplier); }
+            target.GetComponent<IPaintable>().SuckTarget(sucker, SuckMultiplier);
         }
-        else if (Input.GetKey(KeyCode.LeftShift) && targets.Length > 0)
+        else if (Input.GetKey(KeyCode.LeftShift))
         {
+            targets = GetAllTargets(sprintRadius);
             foreach (var target1 in targets)
             {
                 target1.GetComponent<IPaintable>().SuckTarget(sucker, SprintMultiplier);
             }
         }
-
-        target = GetPossibleTarget();
-        targets = GetAllTargets();
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            targets = GetAllTargets(20);
+            foreach (var target1 in targets)
+            {
+                target1.GetComponent<IPaintable>().SuckTarget(sucker, 9999999);
+            }
+        }
     }
 
-    private Transform[] GetAllTargets()
+    private Transform[] GetAllTargets(float radius)
     {
-        return Physics.OverlapSphere(transform.position, sprintRadius, targetMask).Select(collider => collider.transform).ToArray();
+        return Physics.OverlapSphere(transform.position, radius, targetMask).Select(collider => collider.transform).ToArray();
     }
 
     private Transform GetPossibleTarget()

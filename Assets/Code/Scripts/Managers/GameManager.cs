@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
 
     private float CalculateHealedVegPercentage()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        return 0;
     }
 
     private void CheckProgressState()
