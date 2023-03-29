@@ -78,7 +78,7 @@ public class PaintSpawner : MonoBehaviour
             paintObject.transform.Translate(new Vector3(0, gravity, 0));
 
             Collider[] hitColliders = new Collider[5];
-            int numColliders = Physics.OverlapSphereNonAlloc(paintObject.transform.position, 0.1f, hitColliders, _layerMask);
+            int numColliders = Physics.OverlapSphereNonAlloc(paintObject.transform.position, 1f, hitColliders, _layerMask);
 
             for (int i = 0; i < numColliders; i++)
             {
